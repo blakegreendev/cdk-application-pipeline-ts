@@ -1,0 +1,18 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "remote.portsAttributes": {
+    "5005": {
+        "label": "SpringBoot Application"
+    }
+  },
+  "remote.SSH.defaultForwardedPorts": [
+      {
+          "localPort": 5005,
+          "name": "SpringBoot Application Port",
+          "remotePort": 5005
+      }
+  ]
+}
