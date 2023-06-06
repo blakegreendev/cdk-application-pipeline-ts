@@ -19,7 +19,7 @@ export class SoapUITest extends CodeBuildStep {
         ENDPOINT: props.endpoint,
       },
       input: props.source,
-      commands: ['cd fruits-app'],
+      commands: [],
       buildEnvironment: {
         buildImage: LinuxBuildImage.STANDARD_6_0,
       },
@@ -37,7 +37,7 @@ export class SoapUITest extends CodeBuildStep {
             },
           },
           build: {
-            commands: ['mvn ${MAVEN_ARGS} soapui:test -Dsoapui.endpoint=${ENDPOINT}'],
+            commands: ['cd fruits-app && mvn ${MAVEN_ARGS} soapui:test -Dsoapui.endpoint=${ENDPOINT}'],
           },
         },
         cache: props.cacheBucket ? {

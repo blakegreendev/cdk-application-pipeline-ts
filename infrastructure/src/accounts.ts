@@ -7,7 +7,6 @@ export interface Account {
 
 export class Accounts {
   static readonly PATH = '.accounts.json';
-
   static load(): Accounts {
     try {
       return Object.assign(new Accounts(), JSON.parse(fs.readFileSync(Accounts.PATH).toString()));
@@ -15,12 +14,10 @@ export class Accounts {
       return new Accounts();
     }
   }
-
   toolchain?: Account;
   dev?: Account;
   staging?: Account;
   production?: Account;
-
   store() {
     fs.writeFileSync(Accounts.PATH, JSON.stringify(this, null, 2));
   }

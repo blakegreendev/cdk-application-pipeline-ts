@@ -14,7 +14,7 @@ export class MavenBuild extends CodeBuildStep {
   constructor(id: string, props: MavenBuildProps) {
     const stepProps = {
       input: props.source,
-      commands: ['cd fruits-app'],
+      commands: [],
       buildEnvironment: {
         buildImage: LinuxBuildImage.STANDARD_6_0,
       },
@@ -32,7 +32,7 @@ export class MavenBuild extends CodeBuildStep {
             },
           },
           build: {
-            commands: [`mvn \${MAVEN_ARGS} clean ${props.mavenGoal || 'verify'}`],
+            commands: [`cd fruits-app && mvn \${MAVEN_ARGS} clean ${props.mavenGoal || 'verify'}`],
           },
         },
         cache: props.cacheBucket ? {
@@ -40,11 +40,11 @@ export class MavenBuild extends CodeBuildStep {
         } : undefined,
         reports: {
           unit: {
-            'files': ['target/surefire-reports/*.xml'],
+            'files': ['fruits-app/target/surefire-reports/*.xml'],
             'file-format': 'JUNITXML',
           },
           integration: {
-            'files': ['target/soapui-reports/*.xml'],
+            'files': ['fruits-app/target/soapui-reports/*.xml'],
             'file-format': 'JUNITXML',
           },
         },

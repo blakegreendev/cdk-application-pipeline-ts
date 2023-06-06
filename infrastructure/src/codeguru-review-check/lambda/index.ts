@@ -58,6 +58,7 @@ async function checkCodeGuruReview(props: CodeGuruReviewCheckProperties): Promis
 
   const reviewUrl = `https://${reviewSummary.CodeReviewArn?.split(':')[3]}.console.aws.amazon.com/codeguru/reviewer/codereviews/details/${reviewSummary.CodeReviewArn}`;
 
+  // sourcery skip: merge-nested-ifs
   if (reviewSummary.MetricsSummary?.SuppressedLinesOfCodeCount && props.MaxSuppressedLinesOfCodeCount) {
     if (reviewSummary.MetricsSummary?.SuppressedLinesOfCodeCount > props.MaxSuppressedLinesOfCodeCount) {
       throw new Error(`Too many lines suppressed in the CodeGuru Review (${reviewSummary.MetricsSummary?.SuppressedLinesOfCodeCount}): ${reviewUrl}`);

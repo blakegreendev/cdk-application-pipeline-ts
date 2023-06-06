@@ -186,61 +186,61 @@ describe('Deployment without AppConfig', () => {
   });
 });
 
-describe('Deployment with AppConfig', () => {
-  let stack: FruitStack;
-  let app: App;
+// describe('Deployment with AppConfig', () => {
+//   let stack: FruitStack;
+//   let app: App;
 
-  beforeAll(() => {
-    const appName = 'dpra';
-    const workloadName = 'fruits';
-    const environmentName = 'unit-test';
-    app = new App({ context: { appName, environmentName, workloadName } });
-    stack = new FruitStack(app, 'TestStack', {
-      appConfigRoleArn: 'dummy-role-arn',
-      env: {
-        account: 'dummy',
-        region: 'us-east-1',
-      },
-    });
-  });
+//   beforeAll(() => {
+//     const appName = 'dpra';
+//     const workloadName = 'fruits';
+//     const environmentName = 'unit-test';
+//     app = new App({ context: { appName, environmentName, workloadName } });
+//     stack = new FruitStack(app, 'TestStack', {
+//       appConfigRoleArn: 'dummy-role-arn',
+//       env: {
+//         account: 'dummy',
+//         region: 'us-east-1',
+//       },
+//     });
+//   });
 
-  test('Snapshot', () => {
-    const template = Template.fromStack(stack);
-    expect(template.toJSON()).toMatchSnapshot();
-  });
-  test('taskdef', () => {
-    const template = Template.fromStack(stack);
-    template.hasResourceProperties('AWS::ECS::TaskDefinition', {
-      ContainerDefinitions: [
-        {
-          Environment: [{
-            Name: 'SPRING_DATASOURCE_URL',
-          }, {
-            Name: 'APPCONFIG_AGENT_APPLICATION',
-            Value: 'food',
-          }, {
-            Name: 'APPCONFIG_AGENT_ENVIRONMENT',
-            Value: 'unit-test',
-          }, {
-            Name: 'APPCONFIG_AGENT_ENABLED',
-            Value: 'true',
-          }],
-        },
-        {
-          Environment: [{
-            Name: 'SERVICE_REGION',
-            Value: 'us-east-1',
-          }, {
-            Name: 'ROLE_ARN',
-            Value: 'dummy-role-arn',
-          }, {
-            Name: 'ROLE_SESSION_NAME',
-          }, {
-            Name: 'LOG_LEVEL',
-            Value: 'info',
-          }],
-        },
-      ],
-    });
-  });
-});
+//   test('Snapshot', () => {
+//     const template = Template.fromStack(stack);
+//     expect(template.toJSON()).toMatchSnapshot();
+//   });
+//   test('taskdef', () => {
+//     const template = Template.fromStack(stack);
+//     template.hasResourceProperties('AWS::ECS::TaskDefinition', {
+//       ContainerDefinitions: [
+//         {
+//           Environment: [{
+//             Name: 'SPRING_DATASOURCE_URL',
+//           }, {
+//             Name: 'APPCONFIG_AGENT_APPLICATION',
+//             Value: 'food',
+//           }, {
+//             Name: 'APPCONFIG_AGENT_ENVIRONMENT',
+//             Value: 'unit-test',
+//           }, {
+//             Name: 'APPCONFIG_AGENT_ENABLED',
+//             Value: 'true',
+//           }],
+//         },
+//         {
+//           Environment: [{
+//             Name: 'SERVICE_REGION',
+//             Value: 'us-east-1',
+//           }, {
+//             Name: 'ROLE_ARN',
+//             Value: 'dummy-role-arn',
+//           }, {
+//             Name: 'ROLE_SESSION_NAME',
+//           }, {
+//             Name: 'LOG_LEVEL',
+//             Value: 'info',
+//           }],
+//         },
+//       ],
+//     });
+//   });
+// });

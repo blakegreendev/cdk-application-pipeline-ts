@@ -126,11 +126,11 @@ Object {
             "Key": "code.zip",
           },
         },
-        "RepositoryName": "fruit-api",
+        "RepositoryName": "dpra",
       },
       "Type": "AWS::CodeCommit::Repository",
     },
-    "SourceCodeCommitRepoTestStackfruitapiPipeline54C9B885mainEventRule07E06655": Object {
+    "SourceCodeCommitRepoTestStackdpraPipelineC7D32361mainEventRule9687DE1A": Object {
       "Properties": Object {
         "EventPattern": Object {
           "detail": Object {
@@ -170,7 +170,7 @@ Object {
                   },
                   ":codepipeline:us-east-1:dummy:",
                   Object {
-                    "Ref": "fruitapiPipeline1F033DA2",
+                    "Ref": "dpraPipelineA37272C5",
                   },
                 ],
               ],
@@ -178,7 +178,7 @@ Object {
             "Id": "Target0",
             "RoleArn": Object {
               "Fn::GetAtt": Array [
-                "fruitapiPipelineEventsRole00ED83BE",
+                "dpraPipelineEventsRole20F37AC4",
                 "Arn",
               ],
             },
@@ -187,7 +187,7 @@ Object {
       },
       "Type": "AWS::Events::Rule",
     },
-    "fruitapiAssetsDockerAssetD43255A2": Object {
+    "dpraAssetsDockerAsset0484713F": Object {
       "Properties": Object {
         "Artifacts": Object {
           "Type": "CODEPIPELINE",
@@ -198,7 +198,7 @@ Object {
         "Description": "Pipeline step TestStack/Pipeline/Assets/DockerAsset",
         "EncryptionKey": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
             "Arn",
           ],
         },
@@ -211,18 +211,18 @@ Object {
         },
         "ServiceRole": Object {
           "Fn::GetAtt": Array [
-            "fruitapiAssetsDockerRole19B5E4D3",
+            "dpraAssetsDockerRoleD2E5B5C0",
             "Arn",
           ],
         },
         "Source": Object {
-          "BuildSpec": "buildspec-c81cb9840889e8394c8dd75a23a3f9fe04346e4f19-DockerAsset.yaml",
+          "BuildSpec": "buildspec-c8a7f70c4daea4977cf83f2a1fd69d208ae41fbb91-DockerAsset.yaml",
           "Type": "CODEPIPELINE",
         },
       },
       "Type": "AWS::CodeBuild::Project",
     },
-    "fruitapiAssetsDockerRole19B5E4D3": Object {
+    "dpraAssetsDockerRoleD2E5B5C0": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -257,7 +257,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiAssetsDockerRoleDefaultPolicy19C4FC9E": Object {
+    "dpraAssetsDockerRoleDefaultPolicy8569E072": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -315,35 +315,9 @@ Object {
             Object {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-us-west-2",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-us-west-2",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-us-east-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-us-west-2",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-us-east-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-eu-central-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-eu-west-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-ap-south-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-ap-southeast-2",
-                },
-              ],
+              "Resource": Object {
+                "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-image-publishing-role-000000000000-us-east-1",
+              },
             },
             Object {
               "Action": Array [
@@ -355,7 +329,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -365,7 +339,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -383,7 +357,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -391,16 +365,16 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiAssetsDockerRoleDefaultPolicy19C4FC9E",
+        "PolicyName": "dpraAssetsDockerRoleDefaultPolicy8569E072",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiAssetsDockerRole19B5E4D3",
+            "Ref": "dpraAssetsDockerRoleD2E5B5C0",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiAssetsFileAssetE1558F89": Object {
+    "dpraAssetsFileAsset046737F9": Object {
       "Properties": Object {
         "Artifacts": Object {
           "Type": "CODEPIPELINE",
@@ -411,7 +385,7 @@ Object {
         "Description": "Pipeline step TestStack/Pipeline/Assets/FileAsset",
         "EncryptionKey": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
             "Arn",
           ],
         },
@@ -424,53 +398,18 @@ Object {
         },
         "ServiceRole": Object {
           "Fn::GetAtt": Array [
-            "fruitapiAssetsFileRole2CEFDD50",
+            "dpraAssetsFileRoleEC003916",
             "Arn",
           ],
         },
         "Source": Object {
-          "BuildSpec": "buildspec-c81cb9840889e8394c8dd75a23a3f9fe04346e4f19-FileAsset.yaml",
+          "BuildSpec": "buildspec-c8a7f70c4daea4977cf83f2a1fd69d208ae41fbb91-FileAsset.yaml",
           "Type": "CODEPIPELINE",
         },
       },
       "Type": "AWS::CodeBuild::Project",
     },
-    "fruitapiAssetsFileRole2CEFDD50": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "codebuild.amazonaws.com",
-              },
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "AWS": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::dummy:root",
-                    ],
-                  ],
-                },
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "fruitapiAssetsFileRoleDefaultPolicyE93AC574": Object {
+    "dpraAssetsFileRoleDefaultPolicy5243F3D8": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -528,35 +467,9 @@ Object {
             Object {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-us-west-2",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-us-west-2",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-us-east-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-us-west-2",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-us-east-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-eu-central-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-eu-west-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-ap-south-1",
-                },
-                Object {
-                  "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-ap-southeast-2",
-                },
-              ],
+              "Resource": Object {
+                "Fn::Sub": "arn:\${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-us-east-1",
+              },
             },
             Object {
               "Action": Array [
@@ -568,7 +481,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -578,7 +491,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -596,7 +509,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -604,16 +517,51 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiAssetsFileRoleDefaultPolicyE93AC574",
+        "PolicyName": "dpraAssetsFileRoleDefaultPolicy5243F3D8",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiAssetsFileRole2CEFDD50",
+            "Ref": "dpraAssetsFileRoleEC003916",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiCodeBuildActionRole9A61A6CE": Object {
+    "dpraAssetsFileRoleEC003916": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "codebuild.amazonaws.com",
+              },
+            },
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "AWS": Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "arn:",
+                      Object {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":iam::dummy:root",
+                    ],
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "dpraCodeBuildActionRole9B201D8D": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -646,7 +594,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiCodeBuildActionRoleDefaultPolicy58443F01": Object {
+    "dpraCodeBuildActionRoleDefaultPolicy366A4E7C": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -659,7 +607,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineBuildTrivyScan7159420B",
+                  "dpraPipelineBuildTrivyScan8F04AA36",
                   "Arn",
                 ],
               },
@@ -673,7 +621,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineBuild1CEF8E13",
+                  "dpraPipelineBuild4AA585EE",
                   "Arn",
                 ],
               },
@@ -687,7 +635,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineBuildSynthCdkBuildProjectB2FD2528",
+                  "dpraPipelineBuildSynthCdkBuildProjectE42BC4AD",
                   "Arn",
                 ],
               },
@@ -701,7 +649,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiUpdatePipelineSelfMutation2C85BD41",
+                  "dpraUpdatePipelineSelfMutation6FD2CD78",
                   "Arn",
                 ],
               },
@@ -715,7 +663,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiAssetsDockerAssetD43255A2",
+                  "dpraAssetsDockerAsset0484713F",
                   "Arn",
                 ],
               },
@@ -729,7 +677,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiAssetsFileAssetE1558F89",
+                  "dpraAssetsFileAsset046737F9",
                   "Arn",
                 ],
               },
@@ -743,7 +691,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineBetauswest2E2ETestE2ETest3CB062CC",
+                  "dpraPipelineDevuseast1E2ETestE2ETestCA7BE9B8",
                   "Arn",
                 ],
               },
@@ -757,21 +705,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTest8C6ACD96",
-                  "Arn",
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "codebuild:BatchGetBuilds",
-                "codebuild:StartBuild",
-                "codebuild:StopBuild",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestE1E6B155",
+                  "dpraPipelineStaginguseast1PerformanceTestPerformanceTest52FACFA3",
                   "Arn",
                 ],
               },
@@ -779,156 +713,41 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiCodeBuildActionRoleDefaultPolicy58443F01",
+        "PolicyName": "dpraCodeBuildActionRoleDefaultPolicy366A4E7C",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiCodeBuildActionRole9A61A6CE",
+            "Ref": "dpraCodeBuildActionRole9B201D8D",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipeline1F033DA2": Object {
+    "dpraPipelineA37272C5": Object {
       "DependsOn": Array [
-        "fruitapiPipelineRoleDefaultPolicyAA4C5A7F",
-        "fruitapiPipelineRoleDFF3438D",
+        "dpraPipelineRoleDefaultPolicyC5556B4F",
+        "dpraPipelineRoleA720A341",
       ],
       "Properties": Object {
-        "ArtifactStores": Array [
-          Object {
-            "ArtifactStore": Object {
-              "EncryptionKey": Object {
-                "Id": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":kms:us-west-2:dummy:alias/-us-westtencryptionaliase94f7d312d6a60d53e79",
-                    ],
-                  ],
-                },
-                "Type": "KMS",
-              },
-              "Location": "teststack-support-us-westeplicationbucket6c4b3648c465b12ccb3f",
-              "Type": "S3",
+        "ArtifactStore": Object {
+          "EncryptionKey": Object {
+            "Id": Object {
+              "Fn::GetAtt": Array [
+                "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
+                "Arn",
+              ],
             },
-            "Region": "us-west-2",
+            "Type": "KMS",
           },
-          Object {
-            "ArtifactStore": Object {
-              "EncryptionKey": Object {
-                "Id": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":kms:eu-central-1:dummy:alias/-eu-centtencryptionalias9af9f3baa6f4d0e08faa",
-                    ],
-                  ],
-                },
-                "Type": "KMS",
-              },
-              "Location": "teststack-support-eu-centeplicationbucket2ea6a5e48d5e28fc8bac",
-              "Type": "S3",
-            },
-            "Region": "eu-central-1",
+          "Location": Object {
+            "Ref": "dpraPipelineArtifactsBucket84E0E6DD",
           },
-          Object {
-            "ArtifactStore": Object {
-              "EncryptionKey": Object {
-                "Id": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":kms:eu-west-1:dummy:alias/-eu-westtencryptionalias2c129cd6ae48a82d3c41",
-                    ],
-                  ],
-                },
-                "Type": "KMS",
-              },
-              "Location": "teststack-support-eu-westeplicationbucket38f2db97e24f75f47670",
-              "Type": "S3",
-            },
-            "Region": "eu-west-1",
-          },
-          Object {
-            "ArtifactStore": Object {
-              "EncryptionKey": Object {
-                "Id": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":kms:ap-south-1:dummy:alias/-ap-souttencryptionaliasf550e8b9babe0af1f76f",
-                    ],
-                  ],
-                },
-                "Type": "KMS",
-              },
-              "Location": "teststack-support-ap-souteplicationbucket9f37be574b7489dcf907",
-              "Type": "S3",
-            },
-            "Region": "ap-south-1",
-          },
-          Object {
-            "ArtifactStore": Object {
-              "EncryptionKey": Object {
-                "Id": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":kms:ap-southeast-2:dummy:alias/-ap-souttencryptionaliasedbcb5f7a713715f9af6",
-                    ],
-                  ],
-                },
-                "Type": "KMS",
-              },
-              "Location": "teststack-support-ap-souteplicationbucket96d426b15838f27daa81",
-              "Type": "S3",
-            },
-            "Region": "ap-southeast-2",
-          },
-          Object {
-            "ArtifactStore": Object {
-              "EncryptionKey": Object {
-                "Id": Object {
-                  "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-                    "Arn",
-                  ],
-                },
-                "Type": "KMS",
-              },
-              "Location": Object {
-                "Ref": "fruitapiPipelineArtifactsBucket07B9157E",
-              },
-              "Type": "S3",
-            },
-            "Region": "us-east-1",
-          },
-        ],
-        "Name": "fruit-api",
+          "Type": "S3",
+        },
+        "Name": "dpra",
         "RestartExecutionOnUpdate": true,
         "RoleArn": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineRoleDFF3438D",
+            "dpraPipelineRoleA720A341",
             "Arn",
           ],
         },
@@ -966,7 +785,7 @@ Object {
                 ],
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineSourceCodeCommitCodePipelineActionRole408E27CC",
+                    "dpraPipelineSourceCodeCommitCodePipelineActionRole4C8FFF22",
                     "Arn",
                   ],
                 },
@@ -986,7 +805,7 @@ Object {
                 },
                 "Configuration": Object {
                   "FunctionName": Object {
-                    "Ref": "fruitapiPipelineCodeGuruQualityCodeGuruLambdaF7A3E8BE",
+                    "Ref": "dpraPipelineCodeGuruQualityCodeGuruLambdaD4B417FF",
                   },
                   "UserParameters": "{\\"RepositoryName\\":\\"#{Source@c81247736ebecb146a1d9a5ee9d4686c00c8806055.RepositoryName}\\",\\"CommitId\\":\\"#{Source@c81247736ebecb146a1d9a5ee9d4686c00c8806055.CommitId}\\",\\"RecommendationCategories\\":\\"AWSBestPractices,CodeInconsistencies,CodeMaintenanceIssues,DuplicateCode,InputValidations,ConcurrencyIssues,ResourceLeaks,JavaBestPractices,PythonBestPractices\\",\\"MaxSuppressedLinesOfCodeCount\\":\\"0\\",\\"MaxCriticalRecommendations\\":\\"0\\",\\"MaxHighRecommendations\\":\\"0\\",\\"MaxInfoRecommendations\\":\\"0\\",\\"MaxMediumRecommendations\\":\\"0\\",\\"MaxLowRecommendations\\":\\"0\\",\\"ReviewRequired\\":\\"false\\"}",
                 },
@@ -998,7 +817,7 @@ Object {
                 "Name": "CodeGuruQuality",
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineBuildCodeGuruQualityCodePipelineActionRole578506C4",
+                    "dpraPipelineBuildCodeGuruQualityCodePipelineActionRole88767DCD",
                     "Arn",
                   ],
                 },
@@ -1013,7 +832,7 @@ Object {
                 },
                 "Configuration": Object {
                   "FunctionName": Object {
-                    "Ref": "fruitapiPipelineCodeGuruSecurityCodeGuruLambda095BEB71",
+                    "Ref": "dpraPipelineCodeGuruSecurityCodeGuruLambda6A5A094A",
                   },
                   "UserParameters": "{\\"RepositoryName\\":\\"#{Source@c81247736ebecb146a1d9a5ee9d4686c00c8806055.RepositoryName}\\",\\"CommitId\\":\\"#{Source@c81247736ebecb146a1d9a5ee9d4686c00c8806055.CommitId}\\",\\"RecommendationCategories\\":\\"SecurityIssues\\",\\"MaxSuppressedLinesOfCodeCount\\":\\"0\\",\\"MaxCriticalRecommendations\\":\\"0\\",\\"MaxHighRecommendations\\":\\"0\\",\\"MaxInfoRecommendations\\":\\"0\\",\\"MaxMediumRecommendations\\":\\"0\\",\\"MaxLowRecommendations\\":\\"0\\",\\"ReviewRequired\\":\\"false\\"}",
                 },
@@ -1025,7 +844,7 @@ Object {
                 "Name": "CodeGuruSecurity",
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineBuildCodeGuruSecurityCodePipelineActionRole29AC9D5B",
+                    "dpraPipelineBuildCodeGuruSecurityCodePipelineActionRole0519BBFB",
                     "Arn",
                   ],
                 },
@@ -1039,9 +858,9 @@ Object {
                   "Version": "1",
                 },
                 "Configuration": Object {
-                  "EnvironmentVariables": "[{\\"name\\":\\"_PROJECT_CONFIG_HASH\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"50a5eb7d9ad0d7a50bfb476ff5224c01d9373cf9e30adbf4f6490bbdf4894e0e\\"}]",
+                  "EnvironmentVariables": "[{\\"name\\":\\"_PROJECT_CONFIG_HASH\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"0b91b088af2720ecd748ad4a38e9f2278349f6b28d1d344ee30afe925e8326e9\\"}]",
                   "ProjectName": Object {
-                    "Ref": "fruitapiPipelineBuildTrivyScan7159420B",
+                    "Ref": "dpraPipelineBuildTrivyScan8F04AA36",
                   },
                 },
                 "InputArtifacts": Array [
@@ -1057,7 +876,7 @@ Object {
                 ],
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
+                    "dpraCodeBuildActionRole9B201D8D",
                     "Arn",
                   ],
                 },
@@ -1071,9 +890,9 @@ Object {
                   "Version": "1",
                 },
                 "Configuration": Object {
-                  "EnvironmentVariables": "[{\\"name\\":\\"_PROJECT_CONFIG_HASH\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"35a67d5920cf485154569aa37698b7162671b22bcbf2b1d78935c162b42de7a2\\"}]",
+                  "EnvironmentVariables": "[{\\"name\\":\\"_PROJECT_CONFIG_HASH\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"63e0dfb750b1a7038bc7848fb882fa63b7307e33c8922a4bab90e307cc7808c9\\"}]",
                   "ProjectName": Object {
-                    "Ref": "fruitapiPipelineBuild1CEF8E13",
+                    "Ref": "dpraPipelineBuild4AA585EE",
                   },
                 },
                 "InputArtifacts": Array [
@@ -1089,7 +908,7 @@ Object {
                 ],
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
+                    "dpraCodeBuildActionRole9B201D8D",
                     "Arn",
                   ],
                 },
@@ -1105,7 +924,7 @@ Object {
                 "Configuration": Object {
                   "EnvironmentVariables": "[{\\"name\\":\\"_PROJECT_CONFIG_HASH\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"257b619bfd66bed361fc2c779afa4d7043092ea89bb03baca93c4686fe403f5d\\"}]",
                   "ProjectName": Object {
-                    "Ref": "fruitapiPipelineBuildSynthCdkBuildProjectB2FD2528",
+                    "Ref": "dpraPipelineBuildSynthCdkBuildProjectE42BC4AD",
                   },
                 },
                 "InputArtifacts": Array [
@@ -1121,7 +940,7 @@ Object {
                 ],
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
+                    "dpraCodeBuildActionRole9B201D8D",
                     "Arn",
                   ],
                 },
@@ -1142,7 +961,7 @@ Object {
                 "Configuration": Object {
                   "EnvironmentVariables": "[{\\"name\\":\\"_PROJECT_CONFIG_HASH\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"95a8e1287e596cb484b4933d87728e035dc17a374a83850fdd2e1678a7c4691a\\"}]",
                   "ProjectName": Object {
-                    "Ref": "fruitapiUpdatePipelineSelfMutation2C85BD41",
+                    "Ref": "dpraUpdatePipelineSelfMutation6FD2CD78",
                   },
                 },
                 "InputArtifacts": Array [
@@ -1153,7 +972,7 @@ Object {
                 "Name": "SelfMutate",
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
+                    "dpraCodeBuildActionRole9B201D8D",
                     "Arn",
                   ],
                 },
@@ -1173,7 +992,7 @@ Object {
                 },
                 "Configuration": Object {
                   "ProjectName": Object {
-                    "Ref": "fruitapiAssetsDockerAssetD43255A2",
+                    "Ref": "dpraAssetsDockerAsset0484713F",
                   },
                 },
                 "InputArtifacts": Array [
@@ -1184,7 +1003,7 @@ Object {
                 "Name": "DockerAsset",
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
+                    "dpraCodeBuildActionRole9B201D8D",
                     "Arn",
                   ],
                 },
@@ -1199,7 +1018,7 @@ Object {
                 },
                 "Configuration": Object {
                   "ProjectName": Object {
-                    "Ref": "fruitapiAssetsFileAssetE1558F89",
+                    "Ref": "dpraAssetsFileAsset046737F9",
                   },
                 },
                 "InputArtifacts": Array [
@@ -1210,7 +1029,7 @@ Object {
                 "Name": "FileAsset",
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
+                    "dpraCodeBuildActionRole9B201D8D",
                     "Arn",
                   ],
                 },
@@ -1240,21 +1059,20 @@ Object {
                         Object {
                           "Ref": "AWS::Partition",
                         },
-                        ":iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-us-west-2",
+                        ":iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-us-east-1",
                       ],
                     ],
                   },
-                  "StackName": "Beta-us-west-2-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Beta-us-west-2/TestStackfruitapiBetauswest2fruitapiE54C0B51.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Beta-us-west-2/TestStackfruitapiBetauswest2fruitapiE54C0B51.template.json",
+                  "StackName": "Dev-us-east-1-dpra",
+                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-dpra-Dev-us-east-1/TestStackdpraDevuseast1dpra430A5A62.template.json.config.json",
+                  "TemplatePath": "Synth_Output::assembly-TestStack-dpra-Dev-us-east-1/TestStackdpraDevuseast1dpra430A5A62.template.json",
                 },
                 "InputArtifacts": Array [
                   Object {
                     "Name": "Synth_Output",
                   },
                 ],
-                "Name": "fruit-api.Prepare",
-                "Region": "us-west-2",
+                "Name": "dpra.Prepare",
                 "RoleArn": Object {
                   "Fn::Join": Array [
                     "",
@@ -1263,7 +1081,7 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
+                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-east-1",
                     ],
                   ],
                 },
@@ -1279,11 +1097,10 @@ Object {
                 "Configuration": Object {
                   "ActionMode": "CHANGE_SET_EXECUTE",
                   "ChangeSetName": "PipelineChange",
-                  "StackName": "Beta-us-west-2-fruit-api",
+                  "StackName": "Dev-us-east-1-dpra",
                 },
-                "Name": "fruit-api.Deploy",
-                "Namespace": "TestStackfruitapiBetauswest2fruitapiE54C0B51",
-                "Region": "us-west-2",
+                "Name": "dpra.Deploy",
+                "Namespace": "TestStackdpraDevuseast1dpra430A5A62",
                 "RoleArn": Object {
                   "Fn::Join": Array [
                     "",
@@ -1292,7 +1109,7 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
+                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-east-1",
                     ],
                   ],
                 },
@@ -1306,9 +1123,9 @@ Object {
                   "Version": "1",
                 },
                 "Configuration": Object {
-                  "EnvironmentVariables": "[{\\"name\\":\\"ENDPOINT\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"#{TestStackfruitapiBetauswest2fruitapiE54C0B51.endpointUrl}\\"}]",
+                  "EnvironmentVariables": "[{\\"name\\":\\"ENDPOINT\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"#{TestStackdpraDevuseast1dpra430A5A62.endpointUrl}\\"}]",
                   "ProjectName": Object {
-                    "Ref": "fruitapiPipelineBetauswest2E2ETestE2ETest3CB062CC",
+                    "Ref": "dpraPipelineDevuseast1E2ETestE2ETestCA7BE9B8",
                   },
                 },
                 "InputArtifacts": Array [
@@ -1319,65 +1136,17 @@ Object {
                 "Name": "E2E_Test",
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
+                    "dpraCodeBuildActionRole9B201D8D",
                     "Arn",
                   ],
                 },
                 "RunOrder": 3,
               },
             ],
-            "Name": "Beta-us-west-2",
+            "Name": "Dev-us-east-1",
           },
           Object {
             "Actions": Array [
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_REPLACE",
-                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
-                  "ChangeSetName": "PipelineChange",
-                  "RoleArn": Object {
-                    "Fn::Join": Array [
-                      "",
-                      Array [
-                        "arn:",
-                        Object {
-                          "Ref": "AWS::Partition",
-                        },
-                        ":iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-us-west-2",
-                      ],
-                    ],
-                  },
-                  "StackName": "Gamma-us-west-2-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Gamma-us-west-2/TestStackfruitapiGammauswest2fruitapi6ACE9A1B.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Gamma-us-west-2/TestStackfruitapiGammauswest2fruitapi6ACE9A1B.template.json",
-                },
-                "InputArtifacts": Array [
-                  Object {
-                    "Name": "Synth_Output",
-                  },
-                ],
-                "Name": "Gamma-us-west-2.fruit-api.Prepare",
-                "Region": "us-west-2",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
-                    ],
-                  ],
-                },
-                "RunOrder": 1,
-              },
               Object {
                 "ActionTypeId": Object {
                   "Category": "Deploy",
@@ -1401,16 +1170,16 @@ Object {
                       ],
                     ],
                   },
-                  "StackName": "Gamma-us-east-1-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Gamma-us-east-1/TestStackfruitapiGammauseast1fruitapi8F799F28.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Gamma-us-east-1/TestStackfruitapiGammauseast1fruitapi8F799F28.template.json",
+                  "StackName": "Staging-us-east-1-dpra",
+                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-dpra-Staging-us-east-1/TestStackdpraStaginguseast1dpraF670735D.template.json.config.json",
+                  "TemplatePath": "Synth_Output::assembly-TestStack-dpra-Staging-us-east-1/TestStackdpraStaginguseast1dpraF670735D.template.json",
                 },
                 "InputArtifacts": Array [
                   Object {
                     "Name": "Synth_Output",
                   },
                 ],
-                "Name": "Gamma-us-east-1.fruit-api.Prepare",
+                "Name": "dpra.Prepare",
                 "RoleArn": Object {
                   "Fn::Join": Array [
                     "",
@@ -1435,39 +1204,10 @@ Object {
                 "Configuration": Object {
                   "ActionMode": "CHANGE_SET_EXECUTE",
                   "ChangeSetName": "PipelineChange",
-                  "StackName": "Gamma-us-west-2-fruit-api",
+                  "StackName": "Staging-us-east-1-dpra",
                 },
-                "Name": "Gamma-us-west-2.fruit-api.Deploy",
-                "Namespace": "TestStackfruitapiGammauswest2fruitapi6ACE9A1B",
-                "Region": "us-west-2",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
-                    ],
-                  ],
-                },
-                "RunOrder": 2,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_EXECUTE",
-                  "ChangeSetName": "PipelineChange",
-                  "StackName": "Gamma-us-east-1-fruit-api",
-                },
-                "Name": "Gamma-us-east-1.fruit-api.Deploy",
-                "Namespace": "TestStackfruitapiGammauseast1fruitapi8F799F28",
+                "Name": "dpra.Deploy",
+                "Namespace": "TestStackdpraStaginguseast1dpraF670735D",
                 "RoleArn": Object {
                   "Fn::Join": Array [
                     "",
@@ -1490,9 +1230,9 @@ Object {
                   "Version": "1",
                 },
                 "Configuration": Object {
-                  "EnvironmentVariables": "[{\\"name\\":\\"ENDPOINT\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"#{TestStackfruitapiGammauswest2fruitapi6ACE9A1B.endpointUrl}\\"}]",
+                  "EnvironmentVariables": "[{\\"name\\":\\"ENDPOINT\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"#{TestStackdpraStaginguseast1dpraF670735D.endpointUrl}\\"}]",
                   "ProjectName": Object {
-                    "Ref": "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTest8C6ACD96",
+                    "Ref": "dpraPipelineStaginguseast1PerformanceTestPerformanceTest52FACFA3",
                   },
                 },
                 "InputArtifacts": Array [
@@ -1500,37 +1240,10 @@ Object {
                     "Name": "c81247736ebecb146a1d9a5ee9d4686c00c8806055_Source",
                   },
                 ],
-                "Name": "Gamma-us-west-2.Performance_Test",
+                "Name": "Performance_Test",
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
-                    "Arn",
-                  ],
-                },
-                "RunOrder": 3,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Build",
-                  "Owner": "AWS",
-                  "Provider": "CodeBuild",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "EnvironmentVariables": "[{\\"name\\":\\"ENDPOINT\\",\\"type\\":\\"PLAINTEXT\\",\\"value\\":\\"#{TestStackfruitapiGammauseast1fruitapi8F799F28.endpointUrl}\\"}]",
-                  "ProjectName": Object {
-                    "Ref": "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestE1E6B155",
-                  },
-                },
-                "InputArtifacts": Array [
-                  Object {
-                    "Name": "c81247736ebecb146a1d9a5ee9d4686c00c8806055_Source",
-                  },
-                ],
-                "Name": "Gamma-us-east-1.Performance_Test",
-                "RoleArn": Object {
-                  "Fn::GetAtt": Array [
-                    "fruitapiCodeBuildActionRole9A61A6CE",
+                    "dpraCodeBuildActionRole9B201D8D",
                     "Arn",
                   ],
                 },
@@ -1546,65 +1259,17 @@ Object {
                 "Name": "PromoteToProd",
                 "RoleArn": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineGamma0PromoteToProdCodePipelineActionRoleC0594F5B",
+                    "dpraPipelineStaginguseast1PromoteToProdCodePipelineActionRoleCCB88BE5",
                     "Arn",
                   ],
                 },
                 "RunOrder": 4,
               },
             ],
-            "Name": "Gamma-0",
+            "Name": "Staging-us-east-1",
           },
           Object {
             "Actions": Array [
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_REPLACE",
-                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
-                  "ChangeSetName": "PipelineChange",
-                  "RoleArn": Object {
-                    "Fn::Join": Array [
-                      "",
-                      Array [
-                        "arn:",
-                        Object {
-                          "Ref": "AWS::Partition",
-                        },
-                        ":iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-us-west-2",
-                      ],
-                    ],
-                  },
-                  "StackName": "Prod-us-west-2-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Prod-us-west-2/TestStackfruitapiProduswest2fruitapiDDA9C7BF.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Prod-us-west-2/TestStackfruitapiProduswest2fruitapiDDA9C7BF.template.json",
-                },
-                "InputArtifacts": Array [
-                  Object {
-                    "Name": "Synth_Output",
-                  },
-                ],
-                "Name": "Prod-us-west-2.fruit-api.Prepare",
-                "Region": "us-west-2",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
-                    ],
-                  ],
-                },
-                "RunOrder": 1,
-              },
               Object {
                 "ActionTypeId": Object {
                   "Category": "Deploy",
@@ -1628,16 +1293,16 @@ Object {
                       ],
                     ],
                   },
-                  "StackName": "Prod-us-east-1-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Prod-us-east-1/TestStackfruitapiProduseast1fruitapiC0C2CDB3.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Prod-us-east-1/TestStackfruitapiProduseast1fruitapiC0C2CDB3.template.json",
+                  "StackName": "Prod-us-east-1-dpra",
+                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-dpra-Prod-us-east-1/TestStackdpraProduseast1dpraB76E0AC4.template.json.config.json",
+                  "TemplatePath": "Synth_Output::assembly-TestStack-dpra-Prod-us-east-1/TestStackdpraProduseast1dpraB76E0AC4.template.json",
                 },
                 "InputArtifacts": Array [
                   Object {
                     "Name": "Synth_Output",
                   },
                 ],
-                "Name": "Prod-us-east-1.fruit-api.Prepare",
+                "Name": "Prepare",
                 "RoleArn": Object {
                   "Fn::Join": Array [
                     "",
@@ -1662,37 +1327,9 @@ Object {
                 "Configuration": Object {
                   "ActionMode": "CHANGE_SET_EXECUTE",
                   "ChangeSetName": "PipelineChange",
-                  "StackName": "Prod-us-west-2-fruit-api",
+                  "StackName": "Prod-us-east-1-dpra",
                 },
-                "Name": "Prod-us-west-2.fruit-api.Deploy",
-                "Region": "us-west-2",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
-                    ],
-                  ],
-                },
-                "RunOrder": 2,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_EXECUTE",
-                  "ChangeSetName": "PipelineChange",
-                  "StackName": "Prod-us-east-1-fruit-api",
-                },
-                "Name": "Prod-us-east-1.fruit-api.Deploy",
+                "Name": "Deploy",
                 "RoleArn": Object {
                   "Fn::Join": Array [
                     "",
@@ -1708,327 +1345,13 @@ Object {
                 "RunOrder": 2,
               },
             ],
-            "Name": "Prod-0",
-          },
-          Object {
-            "Actions": Array [
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_REPLACE",
-                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
-                  "ChangeSetName": "PipelineChange",
-                  "RoleArn": Object {
-                    "Fn::Join": Array [
-                      "",
-                      Array [
-                        "arn:",
-                        Object {
-                          "Ref": "AWS::Partition",
-                        },
-                        ":iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-eu-central-1",
-                      ],
-                    ],
-                  },
-                  "StackName": "Prod-eu-central-1-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Prod-eu-central-1/TestStackfruitapiProdeucentral1fruitapi5AF03006.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Prod-eu-central-1/TestStackfruitapiProdeucentral1fruitapi5AF03006.template.json",
-                },
-                "InputArtifacts": Array [
-                  Object {
-                    "Name": "Synth_Output",
-                  },
-                ],
-                "Name": "Prod-eu-central-1.fruit-api.Prepare",
-                "Region": "eu-central-1",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-eu-central-1",
-                    ],
-                  ],
-                },
-                "RunOrder": 1,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_REPLACE",
-                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
-                  "ChangeSetName": "PipelineChange",
-                  "RoleArn": Object {
-                    "Fn::Join": Array [
-                      "",
-                      Array [
-                        "arn:",
-                        Object {
-                          "Ref": "AWS::Partition",
-                        },
-                        ":iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-eu-west-1",
-                      ],
-                    ],
-                  },
-                  "StackName": "Prod-eu-west-1-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Prod-eu-west-1/TestStackfruitapiProdeuwest1fruitapiC737DFE7.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Prod-eu-west-1/TestStackfruitapiProdeuwest1fruitapiC737DFE7.template.json",
-                },
-                "InputArtifacts": Array [
-                  Object {
-                    "Name": "Synth_Output",
-                  },
-                ],
-                "Name": "Prod-eu-west-1.fruit-api.Prepare",
-                "Region": "eu-west-1",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-eu-west-1",
-                    ],
-                  ],
-                },
-                "RunOrder": 1,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_EXECUTE",
-                  "ChangeSetName": "PipelineChange",
-                  "StackName": "Prod-eu-central-1-fruit-api",
-                },
-                "Name": "Prod-eu-central-1.fruit-api.Deploy",
-                "Region": "eu-central-1",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-eu-central-1",
-                    ],
-                  ],
-                },
-                "RunOrder": 2,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_EXECUTE",
-                  "ChangeSetName": "PipelineChange",
-                  "StackName": "Prod-eu-west-1-fruit-api",
-                },
-                "Name": "Prod-eu-west-1.fruit-api.Deploy",
-                "Region": "eu-west-1",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-eu-west-1",
-                    ],
-                  ],
-                },
-                "RunOrder": 2,
-              },
-            ],
-            "Name": "Prod-1",
-          },
-          Object {
-            "Actions": Array [
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_REPLACE",
-                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
-                  "ChangeSetName": "PipelineChange",
-                  "RoleArn": Object {
-                    "Fn::Join": Array [
-                      "",
-                      Array [
-                        "arn:",
-                        Object {
-                          "Ref": "AWS::Partition",
-                        },
-                        ":iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-ap-south-1",
-                      ],
-                    ],
-                  },
-                  "StackName": "Prod-ap-south-1-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Prod-ap-south-1/TestStackfruitapiProdapsouth1fruitapi9D505BC6.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Prod-ap-south-1/TestStackfruitapiProdapsouth1fruitapi9D505BC6.template.json",
-                },
-                "InputArtifacts": Array [
-                  Object {
-                    "Name": "Synth_Output",
-                  },
-                ],
-                "Name": "Prod-ap-south-1.fruit-api.Prepare",
-                "Region": "ap-south-1",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-ap-south-1",
-                    ],
-                  ],
-                },
-                "RunOrder": 1,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_REPLACE",
-                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
-                  "ChangeSetName": "PipelineChange",
-                  "RoleArn": Object {
-                    "Fn::Join": Array [
-                      "",
-                      Array [
-                        "arn:",
-                        Object {
-                          "Ref": "AWS::Partition",
-                        },
-                        ":iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-ap-southeast-2",
-                      ],
-                    ],
-                  },
-                  "StackName": "Prod-ap-southeast-2-fruit-api",
-                  "TemplateConfiguration": "Synth_Output::assembly-TestStack-fruit-api-Prod-ap-southeast-2/TestStackfruitapiProdapsoutheast2fruitapi923CF575.template.json.config.json",
-                  "TemplatePath": "Synth_Output::assembly-TestStack-fruit-api-Prod-ap-southeast-2/TestStackfruitapiProdapsoutheast2fruitapi923CF575.template.json",
-                },
-                "InputArtifacts": Array [
-                  Object {
-                    "Name": "Synth_Output",
-                  },
-                ],
-                "Name": "Prod-ap-southeast-2.fruit-api.Prepare",
-                "Region": "ap-southeast-2",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-ap-southeast-2",
-                    ],
-                  ],
-                },
-                "RunOrder": 1,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_EXECUTE",
-                  "ChangeSetName": "PipelineChange",
-                  "StackName": "Prod-ap-south-1-fruit-api",
-                },
-                "Name": "Prod-ap-south-1.fruit-api.Deploy",
-                "Region": "ap-south-1",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-ap-south-1",
-                    ],
-                  ],
-                },
-                "RunOrder": 2,
-              },
-              Object {
-                "ActionTypeId": Object {
-                  "Category": "Deploy",
-                  "Owner": "AWS",
-                  "Provider": "CloudFormation",
-                  "Version": "1",
-                },
-                "Configuration": Object {
-                  "ActionMode": "CHANGE_SET_EXECUTE",
-                  "ChangeSetName": "PipelineChange",
-                  "StackName": "Prod-ap-southeast-2-fruit-api",
-                },
-                "Name": "Prod-ap-southeast-2.fruit-api.Deploy",
-                "Region": "ap-southeast-2",
-                "RoleArn": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-ap-southeast-2",
-                    ],
-                  ],
-                },
-                "RunOrder": 2,
-              },
-            ],
-            "Name": "Prod-2",
+            "Name": "Prod-us-east-1",
           },
         ],
       },
       "Type": "AWS::CodePipeline::Pipeline",
     },
-    "fruitapiPipelineArtifactsBucket07B9157E": Object {
+    "dpraPipelineArtifactsBucket84E0E6DD": Object {
       "DeletionPolicy": "Retain",
       "Properties": Object {
         "BucketEncryption": Object {
@@ -2037,7 +1360,7 @@ Object {
               "ServerSideEncryptionByDefault": Object {
                 "KMSMasterKeyID": Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                    "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                     "Arn",
                   ],
                 },
@@ -2056,7 +1379,21 @@ Object {
       "Type": "AWS::S3::Bucket",
       "UpdateReplacePolicy": "Retain",
     },
-    "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5": Object {
+    "dpraPipelineArtifactsBucketEncryptionKeyAlias5C17B89A": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "AliasName": "alias/codepipeline-teststackdprapipelinec7d32361",
+        "TargetKeyId": Object {
+          "Fn::GetAtt": Array [
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::KMS::Alias",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "KeyPolicy": Object {
@@ -2102,28 +1439,6 @@ Object {
               },
               "Resource": "*",
             },
-            Object {
-              "Action": Array [
-                "kms:Decrypt",
-                "kms:DescribeKey",
-              ],
-              "Effect": "Allow",
-              "Principal": Object {
-                "AWS": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-east-1",
-                    ],
-                  ],
-                },
-              },
-              "Resource": "*",
-            },
           ],
           "Version": "2012-10-17",
         },
@@ -2131,24 +1446,10 @@ Object {
       "Type": "AWS::KMS::Key",
       "UpdateReplacePolicy": "Delete",
     },
-    "fruitapiPipelineArtifactsBucketEncryptionKeyAlias323A80C8": Object {
-      "DeletionPolicy": "Delete",
-      "Properties": Object {
-        "AliasName": "alias/codepipeline-teststackfruitapipipeline54c9b885",
-        "TargetKeyId": Object {
-          "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "AWS::KMS::Alias",
-      "UpdateReplacePolicy": "Delete",
-    },
-    "fruitapiPipelineArtifactsBucketPolicyE8E8DABA": Object {
+    "dpraPipelineArtifactsBucketPolicy8132841B": Object {
       "Properties": Object {
         "Bucket": Object {
-          "Ref": "fruitapiPipelineArtifactsBucket07B9157E",
+          "Ref": "dpraPipelineArtifactsBucket84E0E6DD",
         },
         "PolicyDocument": Object {
           "Statement": Array [
@@ -2166,7 +1467,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -2176,7 +1477,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -2210,7 +1511,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -2220,51 +1521,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-              ],
-              "Effect": "Allow",
-              "Principal": Object {
-                "AWS": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-east-1",
-                    ],
-                  ],
-                },
-              },
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
-                    "Arn",
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -2280,283 +1537,7 @@ Object {
       },
       "Type": "AWS::S3::BucketPolicy",
     },
-    "fruitapiPipelineBetauswest2E2ETestE2ETest3CB062CC": Object {
-      "Properties": Object {
-        "Artifacts": Object {
-          "Type": "CODEPIPELINE",
-        },
-        "Cache": Object {
-          "Location": Object {
-            "Fn::Join": Array [
-              "/",
-              Array [
-                Object {
-                  "Ref": "CacheBucket41D9D0B0",
-                },
-                Object {
-                  "Ref": "AWS::NoValue",
-                },
-              ],
-            ],
-          },
-          "Type": "S3",
-        },
-        "Description": "Pipeline step TestStack/Pipeline/Beta-us-west-2/E2E_Test",
-        "EncryptionKey": Object {
-          "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-            "Arn",
-          ],
-        },
-        "Environment": Object {
-          "ComputeType": "BUILD_GENERAL1_SMALL",
-          "Image": "aws/codebuild/standard:6.0",
-          "ImagePullCredentialsType": "CODEBUILD",
-          "PrivilegedMode": false,
-          "Type": "LINUX_CONTAINER",
-        },
-        "ServiceRole": Object {
-          "Fn::GetAtt": Array [
-            "fruitapiPipelineBetauswest2E2ETestE2ETestRoleE3E5233A",
-            "Arn",
-          ],
-        },
-        "Source": Object {
-          "BuildSpec": "{
-  \\"env\\": {
-    \\"variables\\": {
-      \\"MAVEN_OPTS\\": \\"-XX:+TieredCompilation -XX:TieredStopAtLevel=1\\",
-      \\"MAVEN_ARGS\\": \\"--batch-mode --no-transfer-progress\\"
-    }
-  },
-  \\"phases\\": {
-    \\"install\\": {
-      \\"runtime-versions\\": {
-        \\"java\\": \\"corretto17\\"
-      }
-    },
-    \\"build\\": {
-      \\"commands\\": [
-        \\"mvn \${MAVEN_ARGS} soapui:test -Dsoapui.endpoint=\${ENDPOINT}\\"
-      ]
-    }
-  },
-  \\"cache\\": {
-    \\"paths\\": [
-      \\"/root/.m2/**/*\\"
-    ]
-  },
-  \\"reports\\": {
-    \\"e2e\\": {
-      \\"files\\": [
-        \\"target/soapui-reports/*.xml\\"
-      ],
-      \\"file-format\\": \\"JUNITXML\\"
-    }
-  },
-  \\"version\\": \\"0.2\\"
-}",
-          "Type": "CODEPIPELINE",
-        },
-      },
-      "Type": "AWS::CodeBuild::Project",
-    },
-    "fruitapiPipelineBetauswest2E2ETestE2ETestRoleDefaultPolicy1692C561": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
-                    "CacheBucket41D9D0B0",
-                    "Arn",
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
-                          "CacheBucket41D9D0B0",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
-                      Object {
-                        "Ref": "fruitapiPipelineBetauswest2E2ETestE2ETest3CB062CC",
-                      },
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
-                      Object {
-                        "Ref": "fruitapiPipelineBetauswest2E2ETestE2ETest3CB062CC",
-                      },
-                      ":*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "codebuild:CreateReportGroup",
-                "codebuild:CreateReport",
-                "codebuild:UpdateReport",
-                "codebuild:BatchPutTestCases",
-                "codebuild:BatchPutCodeCoverages",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":codebuild:us-east-1:dummy:report-group/",
-                    Object {
-                      "Ref": "fruitapiPipelineBetauswest2E2ETestE2ETest3CB062CC",
-                    },
-                    "-*",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
-                    "Arn",
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "kms:Decrypt",
-                "kms:DescribeKey",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-                  "Arn",
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "kms:Decrypt",
-                "kms:Encrypt",
-                "kms:ReEncrypt*",
-                "kms:GenerateDataKey*",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-                  "Arn",
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "fruitapiPipelineBetauswest2E2ETestE2ETestRoleDefaultPolicy1692C561",
-        "Roles": Array [
-          Object {
-            "Ref": "fruitapiPipelineBetauswest2E2ETestE2ETestRoleE3E5233A",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "fruitapiPipelineBetauswest2E2ETestE2ETestRoleE3E5233A": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "codebuild.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "fruitapiPipelineBuild1CEF8E13": Object {
+    "dpraPipelineBuild4AA585EE": Object {
       "Properties": Object {
         "Artifacts": Object {
           "Type": "CODEPIPELINE",
@@ -2580,7 +1561,7 @@ Object {
         "Description": "Pipeline step TestStack/Pipeline/Build/Build",
         "EncryptionKey": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
             "Arn",
           ],
         },
@@ -2593,7 +1574,7 @@ Object {
         },
         "ServiceRole": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineBuildRoleD8011BF2",
+            "dpraPipelineBuildRole661D0C2D",
             "Arn",
           ],
         },
@@ -2613,7 +1594,7 @@ Object {
     },
     \\"build\\": {
       \\"commands\\": [
-        \\"mvn \${MAVEN_ARGS} clean verify\\"
+        \\"cd fruits-app && mvn \${MAVEN_ARGS} clean verify\\"
       ]
     }
   },
@@ -2625,13 +1606,13 @@ Object {
   \\"reports\\": {
     \\"unit\\": {
       \\"files\\": [
-        \\"target/surefire-reports/*.xml\\"
+        \\"fruits-app/target/surefire-reports/*.xml\\"
       ],
       \\"file-format\\": \\"JUNITXML\\"
     },
     \\"integration\\": {
       \\"files\\": [
-        \\"target/soapui-reports/*.xml\\"
+        \\"fruits-app/target/soapui-reports/*.xml\\"
       ],
       \\"file-format\\": \\"JUNITXML\\"
     }
@@ -2649,7 +1630,7 @@ Object {
       },
       "Type": "AWS::CodeBuild::Project",
     },
-    "fruitapiPipelineBuildCodeGuruQualityCodePipelineActionRole578506C4": Object {
+    "dpraPipelineBuildCodeGuruQualityCodePipelineActionRole88767DCD": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -2677,7 +1658,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineBuildCodeGuruQualityCodePipelineActionRoleDefaultPolicyF0F4E6F5": Object {
+    "dpraPipelineBuildCodeGuruQualityCodePipelineActionRoleDefaultPolicyE6BCD207": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -2692,7 +1673,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineCodeGuruQualityCodeGuruLambdaF7A3E8BE",
+                    "dpraPipelineCodeGuruQualityCodeGuruLambdaD4B417FF",
                     "Arn",
                   ],
                 },
@@ -2702,7 +1683,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineCodeGuruQualityCodeGuruLambdaF7A3E8BE",
+                          "dpraPipelineCodeGuruQualityCodeGuruLambdaD4B417FF",
                           "Arn",
                         ],
                       },
@@ -2722,7 +1703,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -2732,7 +1713,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -2750,7 +1731,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -2758,16 +1739,16 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineBuildCodeGuruQualityCodePipelineActionRoleDefaultPolicyF0F4E6F5",
+        "PolicyName": "dpraPipelineBuildCodeGuruQualityCodePipelineActionRoleDefaultPolicyE6BCD207",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineBuildCodeGuruQualityCodePipelineActionRole578506C4",
+            "Ref": "dpraPipelineBuildCodeGuruQualityCodePipelineActionRole88767DCD",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineBuildCodeGuruSecurityCodePipelineActionRole29AC9D5B": Object {
+    "dpraPipelineBuildCodeGuruSecurityCodePipelineActionRole0519BBFB": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -2795,7 +1776,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineBuildCodeGuruSecurityCodePipelineActionRoleDefaultPolicyE15CCB79": Object {
+    "dpraPipelineBuildCodeGuruSecurityCodePipelineActionRoleDefaultPolicy8486250B": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -2810,7 +1791,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineCodeGuruSecurityCodeGuruLambda095BEB71",
+                    "dpraPipelineCodeGuruSecurityCodeGuruLambda6A5A094A",
                     "Arn",
                   ],
                 },
@@ -2820,7 +1801,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineCodeGuruSecurityCodeGuruLambda095BEB71",
+                          "dpraPipelineCodeGuruSecurityCodeGuruLambda6A5A094A",
                           "Arn",
                         ],
                       },
@@ -2840,7 +1821,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -2850,7 +1831,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -2868,7 +1849,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -2876,16 +1857,16 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineBuildCodeGuruSecurityCodePipelineActionRoleDefaultPolicyE15CCB79",
+        "PolicyName": "dpraPipelineBuildCodeGuruSecurityCodePipelineActionRoleDefaultPolicy8486250B",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineBuildCodeGuruSecurityCodePipelineActionRole29AC9D5B",
+            "Ref": "dpraPipelineBuildCodeGuruSecurityCodePipelineActionRole0519BBFB",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineBuildRoleD8011BF2": Object {
+    "dpraPipelineBuildRole661D0C2D": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -2902,7 +1883,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineBuildRoleDefaultPolicyC9102332": Object {
+    "dpraPipelineBuildRoleDefaultPolicy31072C56": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -2961,7 +1942,7 @@ Object {
                       },
                       ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
                       Object {
-                        "Ref": "fruitapiPipelineBuild1CEF8E13",
+                        "Ref": "dpraPipelineBuild4AA585EE",
                       },
                     ],
                   ],
@@ -2976,7 +1957,7 @@ Object {
                       },
                       ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
                       Object {
-                        "Ref": "fruitapiPipelineBuild1CEF8E13",
+                        "Ref": "dpraPipelineBuild4AA585EE",
                       },
                       ":*",
                     ],
@@ -3003,7 +1984,7 @@ Object {
                     },
                     ":codebuild:us-east-1:dummy:report-group/",
                     Object {
-                      "Ref": "fruitapiPipelineBuild1CEF8E13",
+                      "Ref": "dpraPipelineBuild4AA585EE",
                     },
                     "-*",
                   ],
@@ -3027,7 +2008,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -3037,7 +2018,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -3058,7 +2039,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -3073,7 +2054,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -3081,16 +2062,16 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineBuildRoleDefaultPolicyC9102332",
+        "PolicyName": "dpraPipelineBuildRoleDefaultPolicy31072C56",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineBuildRoleD8011BF2",
+            "Ref": "dpraPipelineBuildRole661D0C2D",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineBuildSynthCdkBuildProjectB2FD2528": Object {
+    "dpraPipelineBuildSynthCdkBuildProjectE42BC4AD": Object {
       "Properties": Object {
         "Artifacts": Object {
           "Type": "CODEPIPELINE",
@@ -3101,7 +2082,7 @@ Object {
         "Description": "Pipeline step TestStack/Pipeline/Build/Synth",
         "EncryptionKey": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
             "Arn",
           ],
         },
@@ -3114,7 +2095,7 @@ Object {
         },
         "ServiceRole": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineBuildSynthCdkBuildProjectRole6C14B862",
+            "dpraPipelineBuildSynthCdkBuildProjectRoleD64E4ADA",
             "Arn",
           ],
         },
@@ -3147,7 +2128,7 @@ Object {
       },
       "Type": "AWS::CodeBuild::Project",
     },
-    "fruitapiPipelineBuildSynthCdkBuildProjectRole6C14B862": Object {
+    "dpraPipelineBuildSynthCdkBuildProjectRoleD64E4ADA": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -3164,7 +2145,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineBuildSynthCdkBuildProjectRoleDefaultPolicy034B1D6E": Object {
+    "dpraPipelineBuildSynthCdkBuildProjectRoleDefaultPolicyA3AF1B14": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -3186,7 +2167,7 @@ Object {
                       },
                       ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
                       Object {
-                        "Ref": "fruitapiPipelineBuildSynthCdkBuildProjectB2FD2528",
+                        "Ref": "dpraPipelineBuildSynthCdkBuildProjectE42BC4AD",
                       },
                     ],
                   ],
@@ -3201,7 +2182,7 @@ Object {
                       },
                       ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
                       Object {
-                        "Ref": "fruitapiPipelineBuildSynthCdkBuildProjectB2FD2528",
+                        "Ref": "dpraPipelineBuildSynthCdkBuildProjectE42BC4AD",
                       },
                       ":*",
                     ],
@@ -3228,7 +2209,7 @@ Object {
                     },
                     ":codebuild:us-east-1:dummy:report-group/",
                     Object {
-                      "Ref": "fruitapiPipelineBuildSynthCdkBuildProjectB2FD2528",
+                      "Ref": "dpraPipelineBuildSynthCdkBuildProjectE42BC4AD",
                     },
                     "-*",
                   ],
@@ -3252,7 +2233,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -3262,7 +2243,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -3283,7 +2264,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -3298,7 +2279,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -3306,16 +2287,16 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineBuildSynthCdkBuildProjectRoleDefaultPolicy034B1D6E",
+        "PolicyName": "dpraPipelineBuildSynthCdkBuildProjectRoleDefaultPolicyA3AF1B14",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineBuildSynthCdkBuildProjectRole6C14B862",
+            "Ref": "dpraPipelineBuildSynthCdkBuildProjectRoleD64E4ADA",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineBuildTrivyScan7159420B": Object {
+    "dpraPipelineBuildTrivyScan8F04AA36": Object {
       "Properties": Object {
         "Artifacts": Object {
           "Type": "CODEPIPELINE",
@@ -3326,7 +2307,7 @@ Object {
         "Description": "Pipeline step TestStack/Pipeline/Build/TrivyScan",
         "EncryptionKey": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
             "Arn",
           ],
         },
@@ -3339,13 +2320,18 @@ Object {
         },
         "ServiceRole": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineBuildTrivyScanRole5EBDA9A1",
+            "dpraPipelineBuildTrivyScanRole2D686F68",
             "Arn",
           ],
         },
         "Source": Object {
           "BuildSpec": "{
   \\"phases\\": {
+    \\"pre_build\\": {
+      \\"commands\\": [
+        \\"cd fruits-app\\"
+      ]
+    },
     \\"install\\": {
       \\"commands\\": [
         \\"curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin \\"
@@ -3353,7 +2339,7 @@ Object {
     },
     \\"build\\": {
       \\"commands\\": [
-        \\"trivy filesystem --exit-code 1 --no-progress --ignore-unfixed --format cyclonedx --output sbom.json --severity CRITICAL,HIGH --security-checks vuln,config,secret .\\"
+        \\"trivy filesystem --exit-code 1 --no-progress --ignore-unfixed --format cyclonedx --output sbom.json --severity CRITICAL,HIGH --scanners vuln,config,secret .\\"
       ]
     }
   },
@@ -3370,7 +2356,7 @@ Object {
       },
       "Type": "AWS::CodeBuild::Project",
     },
-    "fruitapiPipelineBuildTrivyScanRole5EBDA9A1": Object {
+    "dpraPipelineBuildTrivyScanRole2D686F68": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -3387,7 +2373,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineBuildTrivyScanRoleDefaultPolicyF807A158": Object {
+    "dpraPipelineBuildTrivyScanRoleDefaultPolicyB06883D9": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -3409,7 +2395,7 @@ Object {
                       },
                       ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
                       Object {
-                        "Ref": "fruitapiPipelineBuildTrivyScan7159420B",
+                        "Ref": "dpraPipelineBuildTrivyScan8F04AA36",
                       },
                     ],
                   ],
@@ -3424,7 +2410,7 @@ Object {
                       },
                       ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
                       Object {
-                        "Ref": "fruitapiPipelineBuildTrivyScan7159420B",
+                        "Ref": "dpraPipelineBuildTrivyScan8F04AA36",
                       },
                       ":*",
                     ],
@@ -3451,7 +2437,7 @@ Object {
                     },
                     ":codebuild:us-east-1:dummy:report-group/",
                     Object {
-                      "Ref": "fruitapiPipelineBuildTrivyScan7159420B",
+                      "Ref": "dpraPipelineBuildTrivyScan8F04AA36",
                     },
                     "-*",
                   ],
@@ -3475,7 +2461,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -3485,7 +2471,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -3506,7 +2492,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -3521,7 +2507,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -3529,19 +2515,19 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineBuildTrivyScanRoleDefaultPolicyF807A158",
+        "PolicyName": "dpraPipelineBuildTrivyScanRoleDefaultPolicyB06883D9",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineBuildTrivyScanRole5EBDA9A1",
+            "Ref": "dpraPipelineBuildTrivyScanRole2D686F68",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineCodeGuruQualityCodeGuruLambdaF7A3E8BE": Object {
+    "dpraPipelineCodeGuruQualityCodeGuruLambdaD4B417FF": Object {
       "DependsOn": Array [
-        "fruitapiPipelineCodeGuruQualityCodeGuruLambdaServiceRoleDefaultPolicy7BFC3B00",
-        "fruitapiPipelineCodeGuruQualityCodeGuruLambdaServiceRoleB8AD4EAA",
+        "dpraPipelineCodeGuruQualityCodeGuruLambdaServiceRoleDefaultPolicy3E88F735",
+        "dpraPipelineCodeGuruQualityCodeGuruLambdaServiceRole3B24B9AD",
       ],
       "Properties": Object {
         "Code": Object {
@@ -3556,7 +2542,7 @@ Object {
         "Handler": "index.main",
         "Role": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineCodeGuruQualityCodeGuruLambdaServiceRoleB8AD4EAA",
+            "dpraPipelineCodeGuruQualityCodeGuruLambdaServiceRole3B24B9AD",
             "Arn",
           ],
         },
@@ -3565,7 +2551,7 @@ Object {
       },
       "Type": "AWS::Lambda::Function",
     },
-    "fruitapiPipelineCodeGuruQualityCodeGuruLambdaServiceRoleB8AD4EAA": Object {
+    "dpraPipelineCodeGuruQualityCodeGuruLambdaServiceRole3B24B9AD": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -3596,7 +2582,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineCodeGuruQualityCodeGuruLambdaServiceRoleDefaultPolicy7BFC3B00": Object {
+    "dpraPipelineCodeGuruQualityCodeGuruLambdaServiceRoleDefaultPolicy3E88F735": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -3619,19 +2605,19 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineCodeGuruQualityCodeGuruLambdaServiceRoleDefaultPolicy7BFC3B00",
+        "PolicyName": "dpraPipelineCodeGuruQualityCodeGuruLambdaServiceRoleDefaultPolicy3E88F735",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineCodeGuruQualityCodeGuruLambdaServiceRoleB8AD4EAA",
+            "Ref": "dpraPipelineCodeGuruQualityCodeGuruLambdaServiceRole3B24B9AD",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineCodeGuruSecurityCodeGuruLambda095BEB71": Object {
+    "dpraPipelineCodeGuruSecurityCodeGuruLambda6A5A094A": Object {
       "DependsOn": Array [
-        "fruitapiPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleDefaultPolicy375B423D",
-        "fruitapiPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleB69482CC",
+        "dpraPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleDefaultPolicyC4CE1474",
+        "dpraPipelineCodeGuruSecurityCodeGuruLambdaServiceRole698C8703",
       ],
       "Properties": Object {
         "Code": Object {
@@ -3646,7 +2632,7 @@ Object {
         "Handler": "index.main",
         "Role": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleB69482CC",
+            "dpraPipelineCodeGuruSecurityCodeGuruLambdaServiceRole698C8703",
             "Arn",
           ],
         },
@@ -3655,7 +2641,7 @@ Object {
       },
       "Type": "AWS::Lambda::Function",
     },
-    "fruitapiPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleB69482CC": Object {
+    "dpraPipelineCodeGuruSecurityCodeGuruLambdaServiceRole698C8703": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -3686,7 +2672,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleDefaultPolicy375B423D": Object {
+    "dpraPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleDefaultPolicyC4CE1474": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -3709,16 +2695,292 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleDefaultPolicy375B423D",
+        "PolicyName": "dpraPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleDefaultPolicyC4CE1474",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineCodeGuruSecurityCodeGuruLambdaServiceRoleB69482CC",
+            "Ref": "dpraPipelineCodeGuruSecurityCodeGuruLambdaServiceRole698C8703",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineEventsRole00ED83BE": Object {
+    "dpraPipelineDevuseast1E2ETestE2ETestCA7BE9B8": Object {
+      "Properties": Object {
+        "Artifacts": Object {
+          "Type": "CODEPIPELINE",
+        },
+        "Cache": Object {
+          "Location": Object {
+            "Fn::Join": Array [
+              "/",
+              Array [
+                Object {
+                  "Ref": "CacheBucket41D9D0B0",
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            ],
+          },
+          "Type": "S3",
+        },
+        "Description": "Pipeline step TestStack/Pipeline/Dev-us-east-1/E2E_Test",
+        "EncryptionKey": Object {
+          "Fn::GetAtt": Array [
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
+            "Arn",
+          ],
+        },
+        "Environment": Object {
+          "ComputeType": "BUILD_GENERAL1_SMALL",
+          "Image": "aws/codebuild/standard:6.0",
+          "ImagePullCredentialsType": "CODEBUILD",
+          "PrivilegedMode": false,
+          "Type": "LINUX_CONTAINER",
+        },
+        "ServiceRole": Object {
+          "Fn::GetAtt": Array [
+            "dpraPipelineDevuseast1E2ETestE2ETestRole44872B97",
+            "Arn",
+          ],
+        },
+        "Source": Object {
+          "BuildSpec": "{
+  \\"env\\": {
+    \\"variables\\": {
+      \\"MAVEN_OPTS\\": \\"-XX:+TieredCompilation -XX:TieredStopAtLevel=1\\",
+      \\"MAVEN_ARGS\\": \\"--batch-mode --no-transfer-progress\\"
+    }
+  },
+  \\"phases\\": {
+    \\"install\\": {
+      \\"runtime-versions\\": {
+        \\"java\\": \\"corretto17\\"
+      }
+    },
+    \\"build\\": {
+      \\"commands\\": [
+        \\"cd fruits-app && mvn \${MAVEN_ARGS} soapui:test -Dsoapui.endpoint=\${ENDPOINT}\\"
+      ]
+    }
+  },
+  \\"cache\\": {
+    \\"paths\\": [
+      \\"/root/.m2/**/*\\"
+    ]
+  },
+  \\"reports\\": {
+    \\"e2e\\": {
+      \\"files\\": [
+        \\"target/soapui-reports/*.xml\\"
+      ],
+      \\"file-format\\": \\"JUNITXML\\"
+    }
+  },
+  \\"version\\": \\"0.2\\"
+}",
+          "Type": "CODEPIPELINE",
+        },
+      },
+      "Type": "AWS::CodeBuild::Project",
+    },
+    "dpraPipelineDevuseast1E2ETestE2ETestRole44872B97": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "codebuild.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "dpraPipelineDevuseast1E2ETestE2ETestRoleDefaultPolicyE09A8B01": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "CacheBucket41D9D0B0",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      Object {
+                        "Fn::GetAtt": Array [
+                          "CacheBucket41D9D0B0",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            Object {
+              "Action": Array [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "arn:",
+                      Object {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
+                      Object {
+                        "Ref": "dpraPipelineDevuseast1E2ETestE2ETestCA7BE9B8",
+                      },
+                    ],
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "arn:",
+                      Object {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
+                      Object {
+                        "Ref": "dpraPipelineDevuseast1E2ETestE2ETestCA7BE9B8",
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            Object {
+              "Action": Array [
+                "codebuild:CreateReportGroup",
+                "codebuild:CreateReport",
+                "codebuild:UpdateReport",
+                "codebuild:BatchPutTestCases",
+                "codebuild:BatchPutCodeCoverages",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::Join": Array [
+                  "",
+                  Array [
+                    "arn:",
+                    Object {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":codebuild:us-east-1:dummy:report-group/",
+                    Object {
+                      "Ref": "dpraPipelineDevuseast1E2ETestE2ETestCA7BE9B8",
+                    },
+                    "-*",
+                  ],
+                ],
+              },
+            },
+            Object {
+              "Action": Array [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "dpraPipelineArtifactsBucket84E0E6DD",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      Object {
+                        "Fn::GetAtt": Array [
+                          "dpraPipelineArtifactsBucket84E0E6DD",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            Object {
+              "Action": Array [
+                "kms:Decrypt",
+                "kms:DescribeKey",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
+                  "Arn",
+                ],
+              },
+            },
+            Object {
+              "Action": Array [
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "dpraPipelineDevuseast1E2ETestE2ETestRoleDefaultPolicyE09A8B01",
+        "Roles": Array [
+          Object {
+            "Ref": "dpraPipelineDevuseast1E2ETestE2ETestRole44872B97",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "dpraPipelineEventsRole20F37AC4": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -3735,7 +2997,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineEventsRoleDefaultPolicy805E8108": Object {
+    "dpraPipelineEventsRoleDefaultPolicy691F8757": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -3752,7 +3014,7 @@ Object {
                     },
                     ":codepipeline:us-east-1:dummy:",
                     Object {
-                      "Ref": "fruitapiPipeline1F033DA2",
+                      "Ref": "dpraPipelineA37272C5",
                     },
                   ],
                 ],
@@ -3761,580 +3023,16 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineEventsRoleDefaultPolicy805E8108",
+        "PolicyName": "dpraPipelineEventsRoleDefaultPolicy691F8757",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineEventsRole00ED83BE",
+            "Ref": "dpraPipelineEventsRole20F37AC4",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestE1E6B155": Object {
-      "Properties": Object {
-        "Artifacts": Object {
-          "Type": "CODEPIPELINE",
-        },
-        "Cache": Object {
-          "Location": Object {
-            "Fn::Join": Array [
-              "/",
-              Array [
-                Object {
-                  "Ref": "CacheBucket41D9D0B0",
-                },
-                Object {
-                  "Ref": "AWS::NoValue",
-                },
-              ],
-            ],
-          },
-          "Type": "S3",
-        },
-        "Description": "Pipeline step TestStack/Pipeline/Gamma-0/Gamma-us-east-1.Performance_Test",
-        "EncryptionKey": Object {
-          "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-            "Arn",
-          ],
-        },
-        "Environment": Object {
-          "ComputeType": "BUILD_GENERAL1_SMALL",
-          "Image": "aws/codebuild/standard:6.0",
-          "ImagePullCredentialsType": "CODEBUILD",
-          "PrivilegedMode": false,
-          "Type": "LINUX_CONTAINER",
-        },
-        "ServiceRole": Object {
-          "Fn::GetAtt": Array [
-            "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestRole220C9DC2",
-            "Arn",
-          ],
-        },
-        "Source": Object {
-          "BuildSpec": "{
-  \\"env\\": {
-    \\"variables\\": {
-      \\"MAVEN_OPTS\\": \\"-XX:+TieredCompilation -XX:TieredStopAtLevel=1\\",
-      \\"MAVEN_ARGS\\": \\"--batch-mode --no-transfer-progress\\"
-    }
-  },
-  \\"phases\\": {
-    \\"install\\": {
-      \\"runtime-versions\\": {
-        \\"java\\": \\"corretto17\\"
-      }
-    },
-    \\"build\\": {
-      \\"commands\\": [
-        \\"mvn \${MAVEN_ARGS} compile jmeter:jmeter jmeter:results -Djmeter.endpoint=\${ENDPOINT} -Djmeter.threads=300 -Djmeter.duration=300 -Djmeter.throughput=6000\\"
-      ]
-    }
-  },
-  \\"cache\\": {
-    \\"paths\\": [
-      \\"/root/.m2/**/*\\"
-    ]
-  },
-  \\"version\\": \\"0.2\\"
-}",
-          "Type": "CODEPIPELINE",
-        },
-      },
-      "Type": "AWS::CodeBuild::Project",
-    },
-    "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestRole220C9DC2": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "codebuild.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestRoleDefaultPolicy85F928A0": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
-                    "CacheBucket41D9D0B0",
-                    "Arn",
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
-                          "CacheBucket41D9D0B0",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
-                      Object {
-                        "Ref": "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestE1E6B155",
-                      },
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
-                      Object {
-                        "Ref": "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestE1E6B155",
-                      },
-                      ":*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "codebuild:CreateReportGroup",
-                "codebuild:CreateReport",
-                "codebuild:UpdateReport",
-                "codebuild:BatchPutTestCases",
-                "codebuild:BatchPutCodeCoverages",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":codebuild:us-east-1:dummy:report-group/",
-                    Object {
-                      "Ref": "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestE1E6B155",
-                    },
-                    "-*",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
-                    "Arn",
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "kms:Decrypt",
-                "kms:DescribeKey",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-                  "Arn",
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "kms:Decrypt",
-                "kms:Encrypt",
-                "kms:ReEncrypt*",
-                "kms:GenerateDataKey*",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-                  "Arn",
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestRoleDefaultPolicy85F928A0",
-        "Roles": Array [
-          Object {
-            "Ref": "fruitapiPipelineGamma0Gammauseast1PerformanceTestPerformanceTestRole220C9DC2",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTest8C6ACD96": Object {
-      "Properties": Object {
-        "Artifacts": Object {
-          "Type": "CODEPIPELINE",
-        },
-        "Cache": Object {
-          "Location": Object {
-            "Fn::Join": Array [
-              "/",
-              Array [
-                Object {
-                  "Ref": "CacheBucket41D9D0B0",
-                },
-                Object {
-                  "Ref": "AWS::NoValue",
-                },
-              ],
-            ],
-          },
-          "Type": "S3",
-        },
-        "Description": "Pipeline step TestStack/Pipeline/Gamma-0/Gamma-us-west-2.Performance_Test",
-        "EncryptionKey": Object {
-          "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-            "Arn",
-          ],
-        },
-        "Environment": Object {
-          "ComputeType": "BUILD_GENERAL1_SMALL",
-          "Image": "aws/codebuild/standard:6.0",
-          "ImagePullCredentialsType": "CODEBUILD",
-          "PrivilegedMode": false,
-          "Type": "LINUX_CONTAINER",
-        },
-        "ServiceRole": Object {
-          "Fn::GetAtt": Array [
-            "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTestRole5F4FA7CF",
-            "Arn",
-          ],
-        },
-        "Source": Object {
-          "BuildSpec": "{
-  \\"env\\": {
-    \\"variables\\": {
-      \\"MAVEN_OPTS\\": \\"-XX:+TieredCompilation -XX:TieredStopAtLevel=1\\",
-      \\"MAVEN_ARGS\\": \\"--batch-mode --no-transfer-progress\\"
-    }
-  },
-  \\"phases\\": {
-    \\"install\\": {
-      \\"runtime-versions\\": {
-        \\"java\\": \\"corretto17\\"
-      }
-    },
-    \\"build\\": {
-      \\"commands\\": [
-        \\"mvn \${MAVEN_ARGS} compile jmeter:jmeter jmeter:results -Djmeter.endpoint=\${ENDPOINT} -Djmeter.threads=300 -Djmeter.duration=300 -Djmeter.throughput=6000\\"
-      ]
-    }
-  },
-  \\"cache\\": {
-    \\"paths\\": [
-      \\"/root/.m2/**/*\\"
-    ]
-  },
-  \\"version\\": \\"0.2\\"
-}",
-          "Type": "CODEPIPELINE",
-        },
-      },
-      "Type": "AWS::CodeBuild::Project",
-    },
-    "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTestRole5F4FA7CF": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "codebuild.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTestRoleDefaultPolicy80ED2F34": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
-                    "CacheBucket41D9D0B0",
-                    "Arn",
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
-                          "CacheBucket41D9D0B0",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
-                      Object {
-                        "Ref": "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTest8C6ACD96",
-                      },
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
-                      Object {
-                        "Ref": "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTest8C6ACD96",
-                      },
-                      ":*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "codebuild:CreateReportGroup",
-                "codebuild:CreateReport",
-                "codebuild:UpdateReport",
-                "codebuild:BatchPutTestCases",
-                "codebuild:BatchPutCodeCoverages",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":codebuild:us-east-1:dummy:report-group/",
-                    Object {
-                      "Ref": "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTest8C6ACD96",
-                    },
-                    "-*",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
-                    "Arn",
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      Object {
-                        "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
-                          "Arn",
-                        ],
-                      },
-                      "/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "kms:Decrypt",
-                "kms:DescribeKey",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-                  "Arn",
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "kms:Decrypt",
-                "kms:Encrypt",
-                "kms:ReEncrypt*",
-                "kms:GenerateDataKey*",
-              ],
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
-                  "Arn",
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTestRoleDefaultPolicy80ED2F34",
-        "Roles": Array [
-          Object {
-            "Ref": "fruitapiPipelineGamma0Gammauswest2PerformanceTestPerformanceTestRole5F4FA7CF",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "fruitapiPipelineGamma0PromoteToProdCodePipelineActionRoleC0594F5B": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "AWS": Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":iam::dummy:root",
-                    ],
-                  ],
-                },
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "fruitapiPipelineRoleDFF3438D": Object {
+    "dpraPipelineRoleA720A341": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -4351,7 +3049,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineRoleDefaultPolicyAA4C5A7F": Object {
+    "dpraPipelineRoleDefaultPolicyC5556B4F": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -4372,7 +3070,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -4382,7 +3080,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -4403,7 +3101,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -4413,7 +3111,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineSourceCodeCommitCodePipelineActionRole408E27CC",
+                  "dpraPipelineSourceCodeCommitCodePipelineActionRole4C8FFF22",
                   "Arn",
                 ],
               },
@@ -4423,7 +3121,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineBuildCodeGuruQualityCodePipelineActionRole578506C4",
+                  "dpraPipelineBuildCodeGuruQualityCodePipelineActionRole88767DCD",
                   "Arn",
                 ],
               },
@@ -4433,7 +3131,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineBuildCodeGuruSecurityCodePipelineActionRole29AC9D5B",
+                  "dpraPipelineBuildCodeGuruSecurityCodePipelineActionRole0519BBFB",
                   "Arn",
                 ],
               },
@@ -4443,92 +3141,8 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiCodeBuildActionRole9A61A6CE",
+                  "dpraCodeBuildActionRole9B201D8D",
                   "Arn",
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-us-westeplicationbucket6c4b3648c465b12ccb3f",
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-us-westeplicationbucket6c4b3648c465b12ccb3f/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": Array [
-                "kms:Decrypt",
-                "kms:DescribeKey",
-                "kms:Encrypt",
-                "kms:ReEncrypt*",
-                "kms:GenerateDataKey*",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
-                  ],
                 ],
               },
             },
@@ -4553,284 +3167,24 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineGamma0PromoteToProdCodePipelineActionRoleC0594F5B",
+                  "dpraPipelineStaginguseast1PromoteToProdCodePipelineActionRoleCCB88BE5",
                   "Arn",
-                ],
-              },
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-west-2",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-us-east-1",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-eu-centeplicationbucket2ea6a5e48d5e28fc8bac",
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-eu-centeplicationbucket2ea6a5e48d5e28fc8bac/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-eu-central-1",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-eu-westeplicationbucket38f2db97e24f75f47670",
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-eu-westeplicationbucket38f2db97e24f75f47670/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-eu-west-1",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-ap-souteplicationbucket9f37be574b7489dcf907",
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-ap-souteplicationbucket9f37be574b7489dcf907/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-ap-south-1",
-                  ],
-                ],
-              },
-            },
-            Object {
-              "Action": Array [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*",
-                "s3:DeleteObject*",
-                "s3:PutObject",
-                "s3:PutObjectLegalHold",
-                "s3:PutObjectRetention",
-                "s3:PutObjectTagging",
-                "s3:PutObjectVersionTagging",
-                "s3:Abort*",
-              ],
-              "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-ap-souteplicationbucket96d426b15838f27daa81",
-                    ],
-                  ],
-                },
-                Object {
-                  "Fn::Join": Array [
-                    "",
-                    Array [
-                      "arn:",
-                      Object {
-                        "Ref": "AWS::Partition",
-                      },
-                      ":s3:::teststack-support-ap-souteplicationbucket96d426b15838f27daa81/*",
-                    ],
-                  ],
-                },
-              ],
-            },
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::Join": Array [
-                  "",
-                  Array [
-                    "arn:",
-                    Object {
-                      "Ref": "AWS::Partition",
-                    },
-                    ":iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-ap-southeast-2",
-                  ],
                 ],
               },
             },
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineRoleDefaultPolicyAA4C5A7F",
+        "PolicyName": "dpraPipelineRoleDefaultPolicyC5556B4F",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineRoleDFF3438D",
+            "Ref": "dpraPipelineRoleA720A341",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiPipelineSourceCodeCommitCodePipelineActionRole408E27CC": Object {
+    "dpraPipelineSourceCodeCommitCodePipelineActionRole4C8FFF22": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -4858,7 +3212,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiPipelineSourceCodeCommitCodePipelineActionRoleDefaultPolicy377E2A91": Object {
+    "dpraPipelineSourceCodeCommitCodePipelineActionRoleDefaultPolicyD1D046DD": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -4879,7 +3233,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -4889,7 +3243,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -4910,7 +3264,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -4934,27 +3288,40 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiPipelineSourceCodeCommitCodePipelineActionRoleDefaultPolicy377E2A91",
+        "PolicyName": "dpraPipelineSourceCodeCommitCodePipelineActionRoleDefaultPolicyD1D046DD",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiPipelineSourceCodeCommitCodePipelineActionRole408E27CC",
+            "Ref": "dpraPipelineSourceCodeCommitCodePipelineActionRole4C8FFF22",
           },
         ],
       },
       "Type": "AWS::IAM::Policy",
     },
-    "fruitapiUpdatePipelineSelfMutation2C85BD41": Object {
+    "dpraPipelineStaginguseast1PerformanceTestPerformanceTest52FACFA3": Object {
       "Properties": Object {
         "Artifacts": Object {
           "Type": "CODEPIPELINE",
         },
         "Cache": Object {
-          "Type": "NO_CACHE",
+          "Location": Object {
+            "Fn::Join": Array [
+              "/",
+              Array [
+                Object {
+                  "Ref": "CacheBucket41D9D0B0",
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            ],
+          },
+          "Type": "S3",
         },
-        "Description": "Pipeline step TestStack/Pipeline/UpdatePipeline/SelfMutate",
+        "Description": "Pipeline step TestStack/Pipeline/Staging-us-east-1/Performance_Test",
         "EncryptionKey": Object {
           "Fn::GetAtt": Array [
-            "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
             "Arn",
           ],
         },
@@ -4965,10 +3332,293 @@ Object {
           "PrivilegedMode": false,
           "Type": "LINUX_CONTAINER",
         },
-        "Name": "fruit-api-selfupdate",
         "ServiceRole": Object {
           "Fn::GetAtt": Array [
-            "fruitapiUpdatePipelineSelfMutationRoleC7BC4C3A",
+            "dpraPipelineStaginguseast1PerformanceTestPerformanceTestRole9648ECAD",
+            "Arn",
+          ],
+        },
+        "Source": Object {
+          "BuildSpec": "{
+  \\"env\\": {
+    \\"variables\\": {
+      \\"MAVEN_OPTS\\": \\"-XX:+TieredCompilation -XX:TieredStopAtLevel=1\\",
+      \\"MAVEN_ARGS\\": \\"--batch-mode --no-transfer-progress\\"
+    }
+  },
+  \\"phases\\": {
+    \\"install\\": {
+      \\"runtime-versions\\": {
+        \\"java\\": \\"corretto17\\"
+      }
+    },
+    \\"build\\": {
+      \\"commands\\": [
+        \\"cd fruits-app && mvn \${MAVEN_ARGS} compile jmeter:jmeter jmeter:results -Djmeter.endpoint=\${ENDPOINT} -Djmeter.threads=300 -Djmeter.duration=300 -Djmeter.throughput=6000\\"
+      ]
+    }
+  },
+  \\"cache\\": {
+    \\"paths\\": [
+      \\"/root/.m2/**/*\\"
+    ]
+  },
+  \\"version\\": \\"0.2\\"
+}",
+          "Type": "CODEPIPELINE",
+        },
+      },
+      "Type": "AWS::CodeBuild::Project",
+    },
+    "dpraPipelineStaginguseast1PerformanceTestPerformanceTestRole9648ECAD": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "codebuild.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "dpraPipelineStaginguseast1PerformanceTestPerformanceTestRoleDefaultPolicyE4A0E09E": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "CacheBucket41D9D0B0",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      Object {
+                        "Fn::GetAtt": Array [
+                          "CacheBucket41D9D0B0",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            Object {
+              "Action": Array [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "arn:",
+                      Object {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
+                      Object {
+                        "Ref": "dpraPipelineStaginguseast1PerformanceTestPerformanceTest52FACFA3",
+                      },
+                    ],
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "arn:",
+                      Object {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
+                      Object {
+                        "Ref": "dpraPipelineStaginguseast1PerformanceTestPerformanceTest52FACFA3",
+                      },
+                      ":*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            Object {
+              "Action": Array [
+                "codebuild:CreateReportGroup",
+                "codebuild:CreateReport",
+                "codebuild:UpdateReport",
+                "codebuild:BatchPutTestCases",
+                "codebuild:BatchPutCodeCoverages",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::Join": Array [
+                  "",
+                  Array [
+                    "arn:",
+                    Object {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":codebuild:us-east-1:dummy:report-group/",
+                    Object {
+                      "Ref": "dpraPipelineStaginguseast1PerformanceTestPerformanceTest52FACFA3",
+                    },
+                    "-*",
+                  ],
+                ],
+              },
+            },
+            Object {
+              "Action": Array [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "dpraPipelineArtifactsBucket84E0E6DD",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      Object {
+                        "Fn::GetAtt": Array [
+                          "dpraPipelineArtifactsBucket84E0E6DD",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+            Object {
+              "Action": Array [
+                "kms:Decrypt",
+                "kms:DescribeKey",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
+                  "Arn",
+                ],
+              },
+            },
+            Object {
+              "Action": Array [
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "dpraPipelineStaginguseast1PerformanceTestPerformanceTestRoleDefaultPolicyE4A0E09E",
+        "Roles": Array [
+          Object {
+            "Ref": "dpraPipelineStaginguseast1PerformanceTestPerformanceTestRole9648ECAD",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "dpraPipelineStaginguseast1PromoteToProdCodePipelineActionRoleCCB88BE5": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "AWS": Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      "arn:",
+                      Object {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":iam::dummy:root",
+                    ],
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "dpraUpdatePipelineSelfMutation6FD2CD78": Object {
+      "Properties": Object {
+        "Artifacts": Object {
+          "Type": "CODEPIPELINE",
+        },
+        "Cache": Object {
+          "Type": "NO_CACHE",
+        },
+        "Description": "Pipeline step TestStack/Pipeline/UpdatePipeline/SelfMutate",
+        "EncryptionKey": Object {
+          "Fn::GetAtt": Array [
+            "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
+            "Arn",
+          ],
+        },
+        "Environment": Object {
+          "ComputeType": "BUILD_GENERAL1_SMALL",
+          "Image": "aws/codebuild/standard:6.0",
+          "ImagePullCredentialsType": "CODEBUILD",
+          "PrivilegedMode": false,
+          "Type": "LINUX_CONTAINER",
+        },
+        "Name": "dpra-selfupdate",
+        "ServiceRole": Object {
+          "Fn::GetAtt": Array [
+            "dpraUpdatePipelineSelfMutationRole320A3D7D",
             "Arn",
           ],
         },
@@ -4993,7 +3643,7 @@ Object {
       },
       "Type": "AWS::CodeBuild::Project",
     },
-    "fruitapiUpdatePipelineSelfMutationRoleC7BC4C3A": Object {
+    "dpraUpdatePipelineSelfMutationRole320A3D7D": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -5010,7 +3660,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "fruitapiUpdatePipelineSelfMutationRoleDefaultPolicy4A3C9CE5": Object {
+    "dpraUpdatePipelineSelfMutationRoleDefaultPolicyDDDEFE04": Object {
       "Properties": Object {
         "PolicyDocument": Object {
           "Statement": Array [
@@ -5032,7 +3682,7 @@ Object {
                       },
                       ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
                       Object {
-                        "Ref": "fruitapiUpdatePipelineSelfMutation2C85BD41",
+                        "Ref": "dpraUpdatePipelineSelfMutation6FD2CD78",
                       },
                     ],
                   ],
@@ -5047,7 +3697,7 @@ Object {
                       },
                       ":logs:us-east-1:dummy:log-group:/aws/codebuild/",
                       Object {
-                        "Ref": "fruitapiUpdatePipelineSelfMutation2C85BD41",
+                        "Ref": "dpraUpdatePipelineSelfMutation6FD2CD78",
                       },
                       ":*",
                     ],
@@ -5074,7 +3724,7 @@ Object {
                     },
                     ":codebuild:us-east-1:dummy:report-group/",
                     Object {
-                      "Ref": "fruitapiUpdatePipelineSelfMutation2C85BD41",
+                      "Ref": "dpraUpdatePipelineSelfMutation6FD2CD78",
                     },
                     "-*",
                   ],
@@ -5115,7 +3765,7 @@ Object {
               "Resource": Array [
                 Object {
                   "Fn::GetAtt": Array [
-                    "fruitapiPipelineArtifactsBucket07B9157E",
+                    "dpraPipelineArtifactsBucket84E0E6DD",
                     "Arn",
                   ],
                 },
@@ -5125,7 +3775,7 @@ Object {
                     Array [
                       Object {
                         "Fn::GetAtt": Array [
-                          "fruitapiPipelineArtifactsBucket07B9157E",
+                          "dpraPipelineArtifactsBucket84E0E6DD",
                           "Arn",
                         ],
                       },
@@ -5143,7 +3793,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -5158,7 +3808,7 @@ Object {
               "Effect": "Allow",
               "Resource": Object {
                 "Fn::GetAtt": Array [
-                  "fruitapiPipelineArtifactsBucketEncryptionKey9E5E2FC5",
+                  "dpraPipelineArtifactsBucketEncryptionKeyB2BB45B4",
                   "Arn",
                 ],
               },
@@ -5166,10 +3816,10 @@ Object {
           ],
           "Version": "2012-10-17",
         },
-        "PolicyName": "fruitapiUpdatePipelineSelfMutationRoleDefaultPolicy4A3C9CE5",
+        "PolicyName": "dpraUpdatePipelineSelfMutationRoleDefaultPolicyDDDEFE04",
         "Roles": Array [
           Object {
-            "Ref": "fruitapiUpdatePipelineSelfMutationRoleC7BC4C3A",
+            "Ref": "dpraUpdatePipelineSelfMutationRole320A3D7D",
           },
         ],
       },

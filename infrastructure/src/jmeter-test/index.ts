@@ -22,7 +22,7 @@ export class JMeterTest extends CodeBuildStep {
         ENDPOINT: props.endpoint,
       },
       input: props.source,
-      commands: ['cd fruits-app'],
+      commands: [],
       buildEnvironment: {
         buildImage: LinuxBuildImage.STANDARD_6_0,
       },
@@ -39,7 +39,7 @@ export class JMeterTest extends CodeBuildStep {
               java: (props.javaRuntime || 'corretto17'),
             },
           },
-          build: { commands: [`mvn \${MAVEN_ARGS} compile jmeter:jmeter jmeter:results -Djmeter.endpoint=\${ENDPOINT} -Djmeter.threads=${props.threads} -Djmeter.duration=${props.duration} -Djmeter.throughput=${props.throughput}`] },
+          build: { commands: [`cd fruits-app && mvn \${MAVEN_ARGS} compile jmeter:jmeter jmeter:results -Djmeter.endpoint=\${ENDPOINT} -Djmeter.threads=${props.threads} -Djmeter.duration=${props.duration} -Djmeter.throughput=${props.throughput}`] },
         },
         cache: props.cacheBucket ? {
           paths: ['/root/.m2/**/*'],

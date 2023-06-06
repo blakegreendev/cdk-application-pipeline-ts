@@ -26,15 +26,18 @@ export class TrivyScan extends CodeBuildStep {
       trivyArgs.push(props.severity.join(','));
     }
     if (props.checks) {
-      trivyArgs.push('--security-checks');
+      trivyArgs.push('--scanners');
       trivyArgs.push(props.checks.join(','));
     }
 
     const stepProps = {
       input: props.source,
-      commands: ['cd fruits-app'],
+      commands: [],
       partialBuildSpec: BuildSpec.fromObject({
         phases: {
+          pre_build: {
+            commands: ['cd fruits-app'],
+          },
           install: {
             commands: [
               `curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin ${props.trivyVersion || ''}`,
