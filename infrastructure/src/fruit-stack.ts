@@ -22,7 +22,7 @@ export class FruitStack extends Stack {
   constructor(scope: Construct, id: string, props?: FruitProps) {
     super(scope, id, props);
 
-    const image = new AssetImage('./fruits-java', { target: 'build' });
+    const image = new AssetImage('./fruits-app', { target: 'build' });
 
     const appName = Stack.of(this).stackName.toLowerCase().replace(`-${Stack.of(this).region}-`, '-');
     const vpc = new ec2.Vpc(this, 'Vpc', {
