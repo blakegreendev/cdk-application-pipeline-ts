@@ -10,16 +10,16 @@ import { LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Credentials, DatabaseClusterEngine, DatabaseSecret, ServerlessCluster } from 'aws-cdk-lib/aws-rds';
 import { Construct } from 'constructs';
 
-export interface DeploymentProps extends StackProps {
+export interface FruitProps extends StackProps {
   deploymentConfigName?: string;
   natGateways?: number;
   appConfigRoleArn?: string;
 }
 
-export class DeploymentStack extends Stack {
+export class FruitStack extends Stack {
   public readonly apiUrl: CfnOutput;
 
-  constructor(scope: Construct, id: string, props?: DeploymentProps) {
+  constructor(scope: Construct, id: string, props?: FruitProps) {
     super(scope, id, props);
 
     const image = new AssetImage('./fruits-java', { target: 'build' });

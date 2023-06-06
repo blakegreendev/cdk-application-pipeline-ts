@@ -1,0 +1,18 @@
+{
+  "toolchain": {
+    "profile": "default",
+    "accountId": "278334135690"
+  },
+  "dev": {
+    "profile": "default",
+    "accountId": "278334135690"
+  },
+  "staging": {
+    "profile": "default",
+    "accountId": "278334135690"
+  },
+  "production": {
+    "profile": "default",
+    "accountId": "278334135690"
+  }
+}

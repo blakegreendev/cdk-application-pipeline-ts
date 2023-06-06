@@ -22,7 +22,7 @@ export class JMeterTest extends CodeBuildStep {
         ENDPOINT: props.endpoint,
       },
       input: props.source,
-      commands: [],
+      commands: ['cd fruits-app'],
       buildEnvironment: {
         buildImage: LinuxBuildImage.STANDARD_6_0,
       },

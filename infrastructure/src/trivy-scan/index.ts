@@ -32,7 +32,7 @@ export class TrivyScan extends CodeBuildStep {
 
     const stepProps = {
       input: props.source,
-      commands: [],
+      commands: ['cd fruits-app'],
       partialBuildSpec: BuildSpec.fromObject({
         phases: {
           install: {

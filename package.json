@@ -1,5 +1,5 @@
 {
-  "name": "fruit-api",
+  "name": "dpra",
   "scripts": {
     "build": "npx cdk synth -q",
     "lint": "npx eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern infrastructure/src infrastructure/test build-tools .projenrc.js",

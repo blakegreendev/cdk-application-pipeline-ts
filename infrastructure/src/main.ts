@@ -1,12 +1,12 @@
 import { App, Tags } from 'aws-cdk-lib';
-import { DeploymentStack } from './deployment';
+import { FruitStack } from './fruit-stack';
 
 const appName = 'dpra';
 const app = new App({ context: { appName } });
 const environmentName = app.node.tryGetContext('environmentName');
 const stackName = environmentName ? `${environmentName}-${appName}` : appName;
 
-new DeploymentStack(app, stackName, {
+new FruitStack(app, stackName, {
   deploymentConfigName: app.node.tryGetContext('deploymentConfigurationName'),
   natGateways: app.node.tryGetContext('natGateways'),
   description: `${appName} ${environmentName} deployment`,

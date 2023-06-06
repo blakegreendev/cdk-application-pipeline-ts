@@ -14,7 +14,7 @@ export class MavenBuild extends CodeBuildStep {
   constructor(id: string, props: MavenBuildProps) {
     const stepProps = {
       input: props.source,
-      commands: [],
+      commands: ['cd fruits-app'],
       buildEnvironment: {
         buildImage: LinuxBuildImage.STANDARD_6_0,
       },

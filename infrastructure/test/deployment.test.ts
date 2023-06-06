@@ -2,7 +2,7 @@ import { App, Aspects } from 'aws-cdk-lib';
 import { Annotations, Match, Template } from 'aws-cdk-lib/assertions';
 import { SynthesisMessage } from 'aws-cdk-lib/cx-api';
 import { AwsSolutionsChecks, NagSuppressions } from 'cdk-nag';
-import { DeploymentStack } from '../src/deployment';
+import { FruitStack } from '../src/fruit-stack';
 
 
 function synthesisMessageToString(sm: SynthesisMessage): string {
@@ -18,15 +18,15 @@ expect.addSnapshotSerializer({
 });
 
 describe('cdk-nag', () => {
-  let stack: DeploymentStack;
+  let stack: FruitStack;
   let app: App;
 
   beforeAll(() => {
     const appName = 'dpra';
-    const workloadName = 'food';
+    const workloadName = 'fruits';
     const environmentName = 'unit-test';
     app = new App({ context: { appName, environmentName, workloadName } });
-    stack = new DeploymentStack(app, 'TestStack', {
+    stack = new FruitStack(app, 'TestStack', {
       env: {
         account: 'dummy',
         region: 'us-east-1',
@@ -145,14 +145,14 @@ describe('cdk-nag', () => {
 });
 
 describe('Deployment without AppConfig', () => {
-  let stack: DeploymentStack;
+  let stack: FruitStack;
   let app: App;
 
   beforeAll(() => {
     const appName = 'dpra';
     const environmentName = 'unit-test';
     app = new App({ context: { appName, environmentName } });
-    stack = new DeploymentStack(app, 'TestStack', {
+    stack = new FruitStack(app, 'TestStack', {
       env: {
         account: 'dummy',
         region: 'us-east-1',
@@ -187,15 +187,15 @@ describe('Deployment without AppConfig', () => {
 });
 
 describe('Deployment with AppConfig', () => {
-  let stack: DeploymentStack;
+  let stack: FruitStack;
   let app: App;
 
   beforeAll(() => {
-    const appName = 'fruit-api';
-    const workloadName = 'food';
+    const appName = 'dpra';
+    const workloadName = 'fruits';
     const environmentName = 'unit-test';
     app = new App({ context: { appName, environmentName, workloadName } });
-    stack = new DeploymentStack(app, 'TestStack', {
+    stack = new FruitStack(app, 'TestStack', {
       appConfigRoleArn: 'dummy-role-arn',
       env: {
         account: 'dummy',

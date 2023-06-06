@@ -5,10 +5,10 @@ import { StringParameter } from 'aws-cdk-lib/aws-ssm';
 import { CodePipeline, CodeBuildStep, ManualApprovalStep, StageDeployment, Wave } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 
-// import { Account } from './accounts';
+import { Account, Accounts } from './accounts';
 import { CodeCommitSource } from './codecommit-source';
 import { CodeGuruReviewCheck, CodeGuruReviewFilter } from './codeguru-review-check';
-import { DeploymentStack } from './deployment';
+import { FruitStack } from './fruit-stack';
 import { JMeterTest } from './jmeter-test';
 
 import { MavenBuild } from './maven-build';
@@ -16,12 +16,12 @@ import { SoapUITest } from './soapui-test';
 import { TrivyScan } from './trivy-scan';
 
 
-// export const accounts = Accounts.load();
+export const accounts = Accounts.load();
 
 // BETA environment is 1 wave with 1 region
 export const Dev: EnvironmentConfig = {
   name: 'Dev',
-  account: '278334135690',
+  account: accounts.dev,
   waves: [
     ['us-east-1'],
   ],
@@ -30,7 +30,7 @@ export const Dev: EnvironmentConfig = {
 // GAMMA environment is 1 wave with 2 regions
 export const Staging: EnvironmentConfig = {
   name: 'Staging',
-  account: '278334135690',
+  account: accounts.staging,
   waves: [
     ['us-east-1'],
   ],
@@ -39,7 +39,7 @@ export const Staging: EnvironmentConfig = {
 // PROD environment is 3 wave with 2 regions each wave
 export const Prod: EnvironmentConfig = {
   name: 'Prod',
-  account: '278334135690',
+  account: accounts.production,
   waves: [
     ['us-east-1'],
   ],
@@ -158,7 +158,7 @@ class PipelineEnvironment {
       const wave = pipeline.addWave(`${environment.name}-${i}`);
       for (const region of regions) {
         const deployment = new Deployment(pipeline, environment.name, {
-          account: environment.account!,
+          account: environment.account!.accountId,
           region,
         });
         const stage = wave.addStage(deployment);
@@ -185,7 +185,7 @@ class Deployment extends Stage {
     if (workloadName) {
       appConfigRoleArn = StringParameter.valueFromLookup(scope, `/${workloadName}/dynamic_config_role-${environmentName.toLowerCase()}`);
     }
-    const stack = new DeploymentStack(this, appName, {
+    const stack = new FruitStack(this, appName, {
       appConfigRoleArn,
       deploymentConfigName: this.node.tryGetContext('deploymentConfigurationName'),
       natGateways: this.node.tryGetContext('natGateways'),
@@ -202,6 +202,6 @@ type Region = string;
 type WaveRegions = Region[]
 interface EnvironmentConfig {
   name: string;
-  account?: string;
+  account?: Account;
   waves: WaveRegions[];
 }
