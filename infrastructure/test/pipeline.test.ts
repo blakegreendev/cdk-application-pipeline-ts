@@ -13,7 +13,7 @@ describe('Pipeline', () => {
   let app: App;
 
   beforeEach(() => {
-    const appName = 'fruit-api';
+    const appName = 'dpra';
     app = new App({ context: { appName } });
     stack = new PipelineStack(app, 'TestStack', {
       env: {
@@ -42,7 +42,7 @@ describe('Pipeline', () => {
 
   expect.addSnapshotSerializer({
     test: (val) => typeof val === 'string' && val.match(/:iam::[0-9]{12}:role\//) !== null,
-    serialize: (val) => '"'+val.replace(/[0-9]{12}/g, '000000000000')+'"',
+    serialize: (val) => '"' + val.replace(/[0-9]{12}/g, '000000000000') + '"',
   });
 
   test('Snapshot', () => {

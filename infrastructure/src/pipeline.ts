@@ -5,7 +5,7 @@ import { StringParameter } from 'aws-cdk-lib/aws-ssm';
 import { CodePipeline, CodeBuildStep, ManualApprovalStep, StageDeployment, Wave } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 
-import { Account, Accounts } from './accounts';
+// import { Account } from './accounts';
 import { CodeCommitSource } from './codecommit-source';
 import { CodeGuruReviewCheck, CodeGuruReviewFilter } from './codeguru-review-check';
 import { DeploymentStack } from './deployment';
@@ -16,34 +16,32 @@ import { SoapUITest } from './soapui-test';
 import { TrivyScan } from './trivy-scan';
 
 
-export const accounts = Accounts.load();
+// export const accounts = Accounts.load();
 
 // BETA environment is 1 wave with 1 region
-export const Beta: EnvironmentConfig = {
-  name: 'Beta',
-  account: accounts.beta,
+export const Dev: EnvironmentConfig = {
+  name: 'Dev',
+  account: '278334135690',
   waves: [
-    ['us-west-2'],
+    ['us-east-1'],
   ],
 };
 
 // GAMMA environment is 1 wave with 2 regions
-export const Gamma: EnvironmentConfig = {
-  name: 'Gamma',
-  account: accounts.gamma,
+export const Staging: EnvironmentConfig = {
+  name: 'Staging',
+  account: '278334135690',
   waves: [
-    ['us-west-2', 'us-east-1'],
+    ['us-east-1'],
   ],
 };
 
 // PROD environment is 3 wave with 2 regions each wave
 export const Prod: EnvironmentConfig = {
   name: 'Prod',
-  account: accounts.production,
+  account: '278334135690',
   waves: [
-    ['us-west-2', 'us-east-1'],
-    ['eu-central-1', 'eu-west-1'],
-    ['ap-south-1', 'ap-southeast-2'],
+    ['us-east-1'],
   ],
 };
 
@@ -113,7 +111,7 @@ export class PipelineStack extends Stack {
     });
 
 
-    new PipelineEnvironment(pipeline, Beta, (deployment, stage) => {
+    new PipelineEnvironment(pipeline, Dev, (deployment, stage) => {
       stage.addPost(
         new SoapUITest('E2E Test', {
           source: source.codePipelineSource,
@@ -123,7 +121,7 @@ export class PipelineStack extends Stack {
       );
     });
 
-    new PipelineEnvironment(pipeline, Gamma, (deployment, stage) => {
+    new PipelineEnvironment(pipeline, Staging, (deployment, stage) => {
       stage.addPost(
         new JMeterTest('Performance Test', {
           source: source.codePipelineSource,
@@ -153,14 +151,14 @@ class PipelineEnvironment {
     environment: EnvironmentConfig,
     stagePostProcessor?: PipelineEnvironmentStageProcessor,
     wavePostProcessor?: PipelineEnvironmentWaveProcessor) {
-    if (!environment.account?.accountId) {
+    if (!environment.account) {
       throw new Error(`Missing accountId for environment '${environment.name}'. Do you need to update '.accounts.env'?`);
     }
     for (const [i, regions] of environment.waves.entries()) {
       const wave = pipeline.addWave(`${environment.name}-${i}`);
       for (const region of regions) {
         const deployment = new Deployment(pipeline, environment.name, {
-          account: environment.account!.accountId!,
+          account: environment.account!,
           region,
         });
         const stage = wave.addStage(deployment);
@@ -181,17 +179,17 @@ class Deployment extends Stage {
   constructor(scope: Construct, environmentName: string, env?: Environment) {
     super(scope, `${environmentName}-${env!.region!}`, { env });
     const appName = this.node.tryGetContext('appName');
-    const solutionCode = this.node.tryGetContext('solutionCode');
     const workloadName = this.node.tryGetContext('workloadName');
+    // sourcery skip: avoid-using-var
     var appConfigRoleArn;
-    if(workloadName) {
-      appConfigRoleArn = StringParameter.valueFromLookup(scope, `/${workloadName}/dynamic_config_role-${environmentName.toLowerCase()}`)
+    if (workloadName) {
+      appConfigRoleArn = StringParameter.valueFromLookup(scope, `/${workloadName}/dynamic_config_role-${environmentName.toLowerCase()}`);
     }
     const stack = new DeploymentStack(this, appName, {
       appConfigRoleArn,
       deploymentConfigName: this.node.tryGetContext('deploymentConfigurationName'),
       natGateways: this.node.tryGetContext('natGateways'),
-      description: `${appName} ${environmentName} deployment (${solutionCode})`,
+      description: `${appName} ${environmentName} deployment`,
     });
     this.apiUrl = stack.apiUrl;
 
@@ -204,6 +202,6 @@ type Region = string;
 type WaveRegions = Region[]
 interface EnvironmentConfig {
   name: string;
-  account?: Account;
+  account?: string;
   waves: WaveRegions[];
 }

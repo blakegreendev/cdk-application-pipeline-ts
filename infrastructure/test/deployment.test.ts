@@ -22,7 +22,7 @@ describe('cdk-nag', () => {
   let app: App;
 
   beforeAll(() => {
-    const appName = 'fruit-api';
+    const appName = 'dpra';
     const workloadName = 'food';
     const environmentName = 'unit-test';
     app = new App({ context: { appName, environmentName, workloadName } });
@@ -149,7 +149,7 @@ describe('Deployment without AppConfig', () => {
   let app: App;
 
   beforeAll(() => {
-    const appName = 'fruit-api';
+    const appName = 'dpra';
     const environmentName = 'unit-test';
     app = new App({ context: { appName, environmentName } });
     stack = new DeploymentStack(app, 'TestStack', {

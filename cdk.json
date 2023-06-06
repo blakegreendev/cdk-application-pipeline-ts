@@ -2,9 +2,8 @@
   "app": "npx ts-node -P tsconfig.json --prefer-ts-exts infrastructure/src/pipeline-main.ts",
   "context": {
     "deploymentConfigurationName": "CodeDeployDefault.ECSCanary10Percent5Minutes",
-    "natGateways": 3,
-    "workloadName": "",
-    "solutionCode": "dpra-app-1tub7ocne"
+    "natGateways": 1,
+    "workloadName": "fruits"
   },
   "output": "cdk.out",
   "watch": {

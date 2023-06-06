@@ -22,7 +22,7 @@ export class DeploymentStack extends Stack {
   constructor(scope: Construct, id: string, props?: DeploymentProps) {
     super(scope, id, props);
 
-    const image = new AssetImage('.', { target: 'build' });
+    const image = new AssetImage('./fruits-java', { target: 'build' });
 
     const appName = Stack.of(this).stackName.toLowerCase().replace(`-${Stack.of(this).region}-`, '-');
     const vpc = new ec2.Vpc(this, 'Vpc', {
@@ -83,8 +83,8 @@ export class DeploymentStack extends Stack {
           streamPrefix: 'service',
         }),
         secrets: {
-          SPRING_DATASOURCE_USERNAME: Secret.fromSecretsManager( dbSecret, 'username' ),
-          SPRING_DATASOURCE_PASSWORD: Secret.fromSecretsManager( dbSecret, 'password' ),
+          SPRING_DATASOURCE_USERNAME: Secret.fromSecretsManager(dbSecret, 'username'),
+          SPRING_DATASOURCE_PASSWORD: Secret.fromSecretsManager(dbSecret, 'password'),
         },
         environment: {
           SPRING_DATASOURCE_URL: `jdbc:mysql://${db.clusterEndpoint.hostname}:${db.clusterEndpoint.port}/${dbName}`,
